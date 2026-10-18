@@ -17,7 +17,9 @@
 
 书签仅保留「游戏开发自助餐 → 网站一级分区 → 书签」的结构，每个分区内直接放全部书签。网站可以按内容需要新增子分区，但应先复用或合并用途重叠的分类，不同步增加书签层级。
 
-日常维护可直接修改 `assets/js/*-data.js`。Unity 的两条补充教程位于 `assets/js/unity-extra.js`。分区使用共用的 `assets/js/inspiration.js` 渲染，支持来源筛选、搜索、本地封面与失败回退。
+日常维护可直接修改 `assets/js/*-data.js`。Unity 的两条补充教程位于 `assets/js/unity-extra.js`。分区使用共用的 `assets/js/inspiration.js` 渲染，支持来源筛选、搜索、本地封面与失败回退。缩略图为 `.svg` 的条目视为文字封面，页面会改用跟随明暗主题的 HTML 版本显示。
+
+主页会按顺序加载六个分区的数据文件，在分区卡片上显示封面拼贴、代表资源和条数。卡片的子路线标签（`tags`）和代表资源（`picks`，填资源 id，前三条同时用作封面拼贴）在 `assets/js/index.js` 的 `AREAS` 中维护；删除或改名资源后，记得同步更新 `picks`。
 
 `assets/data/miro-board.svg` 是本次读取的资料板内容快照，不会在访问网页时请求 Miro。原板没有外链的条目链接回对应 Miro 项目；内嵌文档也保留原板入口。
 

@@ -11,10 +11,10 @@
   --surface: #fffdf9;
   --surface-2: #f6f3ec;
   --line: #d8d3c8;          /* 细灰线 */
-  --line-2: #bfb9ab;
+  --line-2: #aea795;
   --text: #1c1b19;
   --text-2: #55524b;
-  --muted: #8a867c;
+  --muted: #736f65;
   --grid: rgba(0, 0, 0, .055);
 
   --amber: #e19400;         /* 发光主色：描边、光晕 */
@@ -46,7 +46,7 @@
   --line-2: #3a3f4b;
   --text: #eceae4;
   --text-2: #a9a69d;
-  --muted: #6f7480;
+  --muted: #858a95;
   --grid: rgba(255, 255, 255, .045);
   --amber: #ffb340;
   --amber-ink: #ffc46b;
@@ -107,6 +107,14 @@ a { color: inherit; }
 .area-nav { grid-area: nav; display: flex; gap: 2px; overflow-x: auto; scrollbar-width: none; padding-bottom: 8px; }
 .area-nav::-webkit-scrollbar { display: none; }
 @media (min-width: 900px) { .area-nav { padding: 0; } }
+/* 窄屏时右侧渐隐，提示导航还能横向滑动 */
+@media (max-width: 899px) {
+  .area-nav {
+    -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 32px), transparent);
+    mask-image: linear-gradient(to right, #000 calc(100% - 32px), transparent);
+    padding-right: 24px;
+  }
+}
 .area-nav a, .area-nav span {
   white-space: nowrap; padding: 5px 12px; border-radius: 6px; font-size: 14px;
   color: var(--text-2); text-decoration: none; border: 1px solid transparent;
@@ -179,6 +187,7 @@ a { color: inherit; }
 .btn:hover { box-shadow: 0 0 22px -2px var(--glow); transform: translateY(-1px); }
 
 .hero-art { width: 100%; max-width: 520px; justify-self: center; }
+@media (max-width: 899px) { .hero-art { max-width: 380px; } }
 .hero-art svg { display: block; width: 100%; height: auto; overflow: visible; }
 .hero-caption { margin: 8px 0 0; text-align: center; color: var(--muted); font: 12px var(--mono); }
 .hero-art .floor, .hero-art .slot { cursor: pointer; text-decoration: none; }
@@ -188,7 +197,9 @@ a { color: inherit; }
 .t2 { font: 400 11px var(--mono); fill: var(--muted); }
 .leader { stroke: var(--line-2); stroke-width: 1; fill: none; vector-effect: non-scaling-stroke; transition: stroke .3s; }
 .leader-dot { fill: var(--line-2); transition: fill .3s; }
+.slot-name { font: 600 11px var(--sans); fill: var(--text-2); transition: fill .3s; }
 .is-lit .t0 { fill: var(--amber-ink); }
+.is-lit .slot-name { fill: var(--text); }
 .is-lit .t1 { fill: var(--text); }
 .is-lit .leader { stroke: var(--amber); }
 .is-lit .leader-dot { fill: var(--amber); }
@@ -273,8 +284,27 @@ a.card:focus-visible { outline: 2px solid var(--amber); outline-offset: 3px; }
 }
 .cover svg { position: absolute; inset: 0; width: 100%; height: 100%; }
 .grid.wide .cover:not(.has-thumbnail) { aspect-ratio: 21 / 9; }
-.cover-image { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; background: var(--surface-2); }
+/* 封面统一处理：平时略微压暗、降低饱和度，悬停时恢复原色 */
+.cover-image {
+  position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; background: var(--surface-2);
+  filter: saturate(.7) brightness(.84); transition: filter .35s;
+}
+:root:not([data-theme="dark"]) .cover-image { filter: saturate(.78); }
+a.card:hover .cover-image, a.card:focus-visible .cover-image { filter: none; }
 .cover-image.is-avatar { object-fit: contain; padding: 20px; }
+
+/* 文字封面：叠在等角线稿上，名称放在左下角，避开左上角的来源标签 */
+.title-card {
+  position: absolute; left: 0; right: 0; bottom: 0; display: flex; flex-direction: column; gap: 2px;
+  padding: 28px 16px 12px;
+  background: linear-gradient(to top, var(--surface-2) 45%, transparent);
+}
+.title-card b {
+  font: 600 18px/1.3 var(--sans); color: var(--text); overflow-wrap: anywhere;
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+}
+.title-card span { font: 12px var(--mono); color: var(--muted); }
+.cover:has(.title-card) > svg { opacity: .6; }
 .icon-btn svg { width: 16px; height: 16px; }
 .chips { position: absolute; left: 10px; top: 10px; display: flex; gap: 6px; }
 .tag {
@@ -320,6 +350,48 @@ a.card:hover .go { color: var(--amber-ink); transform: translate(2px, -2px); }
 /* ---------- 首页菜单卡片 ---------- */
 .tiles { display: grid; gap: 16px; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); }
 .tile-no { font: 500 12px var(--mono); color: var(--amber-ink); letter-spacing: .1em; }
+
+/* 封面拼贴：一大两小，取自分区里的代表资源 */
+.cover.collage {
+  display: grid; grid-template-columns: 1.4fr 1fr; grid-template-rows: 1fr 1fr; gap: 6px; padding: 10px;
+}
+.cover.collage::before { z-index: 0; }
+.collage .cell {
+  position: relative; overflow: hidden; border: 1px solid var(--line-2); border-radius: 4px; background: var(--surface-2);
+  transition: border-color .3s, box-shadow .3s;
+}
+.collage .cell:first-child { grid-row: 1 / 3; }
+.collage .cell .cover-image.is-avatar { padding: 10px; }
+.collage .title-card { padding: 16px 10px 8px; }
+.collage .title-card b { font-size: 14px; }
+.collage .cell:not(:first-child) .title-card b { font-size: 12px; -webkit-line-clamp: 1; }
+.collage .title-card span { display: none; }
+a.card:hover .collage .cell, a.card:focus-visible .collage .cell { border-color: var(--amber); }
+a.card:hover .collage .cell:first-child, a.card:focus-visible .collage .cell:first-child { box-shadow: 0 0 14px -4px var(--glow); }
+.collage .more {
+  position: absolute; right: 16px; bottom: 16px; z-index: 1;
+  font: 500 11px/1 var(--mono); padding: 4px 7px; border-radius: 4px;
+  color: var(--text); background: var(--surface); border: 1px solid var(--line-2);
+}
+
+/* 分区卡片正文：子路线标签 + 代表资源 */
+.tile-tags { display: flex; flex-wrap: wrap; gap: 6px; height: 24px; overflow: hidden; margin: 4px 0 2px; }
+.tile-tags span {
+  font-size: 12px; line-height: 22px; padding: 0 9px; border: 1px solid var(--line); border-radius: 999px;
+  color: var(--text-2); white-space: nowrap;
+}
+.tile-picks { list-style: none; margin: 6px 0 0; padding: 0; }
+.tile-picks li {
+  display: flex; align-items: baseline; gap: 10px; padding: 6px 0; border-top: 1px dashed var(--line);
+  font-size: 14px;
+}
+.tile-picks li::before {
+  content: ""; flex-shrink: 0; width: 5px; height: 5px; border-radius: 50%; background: var(--line-2);
+  transform: translateY(-2px); transition: background .25s, box-shadow .25s;
+}
+a.card:hover .tile-picks li::before { background: var(--amber); box-shadow: 0 0 6px var(--amber); }
+.tile-picks .name { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.tile-picks .pf { flex-shrink: 0; font: 11px var(--mono); color: var(--muted); }
 .card.soon { cursor: default; }
 .card.soon .cover svg { opacity: .55; }
 .card.soon .go { color: var(--muted); }

@@ -63,12 +63,15 @@
     var pf = PLATFORM[it.platform] || { label: it.platform, host: '' };
     var domain = pf.host;
     try { domain = new URL(it.url).hostname.replace(/^www\./, ''); } catch (e) { /* 使用平台名称 */ }
+    // .svg 缩略图是同步脚本生成的文字封面，改用跟随主题的 HTML 版本。
+    var art = ISO.isTitleCard(it.thumbnail)
+      ? ISO.titleCard(it.title, domain)
+      : it.thumbnail ? '<img class="cover-image' + (it.thumbnailFit === 'contain' ? ' is-avatar' : '') + '" src="' + esc(it.thumbnail) + '" alt="' + esc(it.title + (it.type === 'video' ? '视频封面' : '资源图片')) + '" loading="lazy" decoding="async" width="480" height="270">' : '';
     return '' +
       '<a class="card' + (it.hot ? ' hot' : '') + '" href="' + esc(it.url) + '" target="_blank" rel="noopener noreferrer"' +
       ' data-platform="' + esc(it.platform) + '" data-hot="' + (it.hot ? '1' : '0') + '"' +
       ' data-text="' + esc((it.title + ' ' + (it.orig || '') + ' ' + it.desc + ' ' + (it.note || '')).toLowerCase()) + '">' +
-        '<div class="cover' + (it.thumbnail ? ' has-thumbnail' : '') + '">' + ISO.cover(ISO.hash(it.id)) +
-          (it.thumbnail ? '<img class="cover-image' + (it.thumbnailFit === 'contain' ? ' is-avatar' : '') + '" src="' + esc(it.thumbnail) + '" alt="' + esc(it.title + (it.type === 'video' ? '视频封面' : '资源图片')) + '" loading="lazy" decoding="async" width="480" height="270">' : '') +
+        '<div class="cover' + (it.thumbnail ? ' has-thumbnail' : '') + '">' + ISO.cover(ISO.hash(it.id)) + art +
           '<div class="chips"><span class="tag">' + esc(pf.label) + '</span></div>' +
         '</div>' +
         '<div class="card-body">' +

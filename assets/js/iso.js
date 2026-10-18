@@ -103,5 +103,16 @@ window.ISO = (function () {
     return out + '</svg>';
   }
 
-  return { proj: proj, pts: pts, box: box, gridLines: gridLines, diamond: diamond, rng: rng, hash: hash, cover: cover, building: building, C: C };
+  /* 文字封面：没有可用图片的资源显示名称与域名，颜色跟随主题 */
+  function esc(s) {
+    return String(s).replace(/[&<>"']/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+    });
+  }
+  function isTitleCard(thumbnail) { return !!thumbnail && /\.svg$/i.test(thumbnail); }
+  function titleCard(name, host) {
+    return '<div class="title-card"><b>' + esc(name) + '</b>' + (host ? '<span>' + esc(host) + '</span>' : '') + '</div>';
+  }
+
+  return { proj: proj, pts: pts, box: box, gridLines: gridLines, diamond: diamond, rng: rng, hash: hash, cover: cover, building: building, C: C, esc: esc, isTitleCard: isTitleCard, titleCard: titleCard };
 })();
