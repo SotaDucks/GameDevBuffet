@@ -37,30 +37,115 @@
   var PF = { youtube: 'YouTube', bilibili: 'B站', website: '网站', github: 'GitHub', docs: '文档', miro: '资料板' };
   var esc = ISO.esc;
 
-  /* ---------- 首屏：6 块"餐盘"，已开放的亮着 ---------- */
-  var s = 22, p = ISO.proj(s, 112, 34), size = 2.1, step = 2.55, art = '';
-  art += '<svg viewBox="0 0 290 190" role="group" aria-label="六个分区示意图" focusable="false">';
-  var order = [];
-  AREAS.forEach(function (a, i) { order.push({ a: a, c: i % 3, r: Math.floor(i / 3) }); });
-  order.sort(function (u, v) { return (u.c + u.r) - (v.c + v.r) || u.r - v.r; });
-  order.forEach(function (o) {
-    var x0 = o.c * step, y0 = o.r * step;
-    var c = p(x0 + size / 2, y0 + size / 2, 0.5);
-    var inner = '<g class="slab-wrap">' + ISO.box(p, x0, y0, 0, size, size, 0.5, 'slab') + '</g>' +
-      '<text class="t0" text-anchor="middle" x="' + c[0].toFixed(1) + '" y="' + (c[1] - 3).toFixed(1) + '">' + o.a.no + '</text>' +
-      '<text class="slot-name" text-anchor="middle" x="' + c[0].toFixed(1) + '" y="' + (c[1] + 11).toFixed(1) + '">' + o.a.short + '</text>';
-    art += o.a.live
-      ? '<a class="slot is-lit" href="' + o.a.href + '" aria-label="' + o.a.title + '">' + inner + '</a>'
-      : '<g class="slot" aria-label="' + o.a.title + '（筹备中）">' + inner + '</g>';
-  });
-  art += '</svg>';
-  document.getElementById('hero-art').innerHTML = art;
+  /* ---------- 首屏：关卡地图。6 座浮空小岛按 01 → 06 用一条小路串起来 ---------- */
+  (function () {
+    var s = 18, A = 2.4, H = 0.6, PAD = 1, PH = 0.22, h2 = A / 2;
+    var raw = ISO.proj(s, 0, 0), bb = [Infinity, Infinity, -Infinity, -Infinity];
+    function grow(x, y) { bb[0] = Math.min(bb[0], x); bb[1] = Math.min(bb[1], y); bb[2] = Math.max(bb[2], x); bb[3] = Math.max(bb[3], y); }
+    function p(x, y, z) { var q = raw(x, y, z); grow(q[0], q[1]); return q; }
+    function f(n) { return n.toFixed(1); }
+    function pt(q) { return f(q[0]) + ',' + f(q[1]); }
+    function textW(t) { var w = 0; for (var i = 0; i < t.length; i++) w += /[⺀-鿿]/.test(t[i]) ? 12 : t[i] === ' ' ? 3.5 : 7.2; return w; }
+    function trail(seg, d) { return '<path class="trail" data-seg="' + seg + '" d="' + d + '"/>'; }
 
-  /* 悬停时临时点亮 */
-  Array.prototype.forEach.call(document.querySelectorAll('#hero-art .slot'), function (el) {
-    el.addEventListener('mouseenter', function () { el.classList.add('is-lit'); });
-    el.addEventListener('mouseleave', function () { if (!el.getAttribute('href')) el.classList.remove('is-lit'); });
-  });
+    /* 屏幕横向 u、纵深 v 换算成世界坐标：01 在左下，之后上下交替、一路向右 */
+    var nodes = AREAS.map(function (a, i) {
+      var u = (i - 2.5) * 3.6, v = i % 2 ? 0 : 13;
+      return { a: a, i: i, up: i % 2 === 1, v: v, x: (u + v) / 2, y: (v - u) / 2 };
+    });
+    /* 岛的进出口：上下相邻的岛，从前角 / 后角接出小路 */
+    function corner(n, dv) { return [n.x + dv * h2, n.y + dv * h2]; }
+    nodes.forEach(function (n, i) {
+      n.inV = i ? corner(n, -Math.sign(n.v - nodes[i - 1].v)) : [n.x - h2, n.y + h2];   // 01 从左角进
+      n.outV = i < nodes.length - 1 ? corner(n, Math.sign(nodes[i + 1].v - n.v)) : null;
+    });
+
+    /* 气泡标签：上排在岛的上方、尖角朝下；下排在岛的下方、尖角朝上 */
+    function bubble(x, y, w, h, cx, down) {
+      var r = 4, b = y + h;
+      var topEdge = down ? 'H' + f(x + w - r) : 'H' + f(cx - 4) + 'L' + f(cx) + ',' + f(y - 4) + 'L' + f(cx + 4) + ',' + f(y) + 'H' + f(x + w - r);
+      var botEdge = down ? 'H' + f(cx + 4) + 'L' + f(cx) + ',' + f(b + 4) + 'L' + f(cx - 4) + ',' + f(b) + 'H' + f(x + r) : 'H' + f(x + r);
+      return 'M' + f(x + r) + ',' + f(y) + topEdge + 'Q' + f(x + w) + ',' + f(y) + ' ' + f(x + w) + ',' + f(y + r) +
+        'V' + f(b - r) + 'Q' + f(x + w) + ',' + f(b) + ' ' + f(x + w - r) + ',' + f(b) + botEdge +
+        'Q' + f(x) + ',' + f(b) + ' ' + f(x) + ',' + f(b - r) + 'V' + f(y + r) + 'Q' + f(x) + ',' + f(y) + ' ' + f(x + r) + ',' + f(y) + 'Z';
+    }
+
+    function island(n) {
+      var x0 = n.x - h2, y0 = n.y - h2, c = p(n.x, n.y, 0), last = n.i === nodes.length - 1;
+      var r = ISO.rng(ISO.hash(n.a.id));
+      var out = '<a class="lvl" data-i="' + n.i + '" style="--i:' + n.i + '" href="' + n.a.href + '" aria-label="' + esc(n.a.no + ' ' + n.a.title) + '">';
+      out += ISO.box(p, x0, y0, -H, A, A, H, 'slab') + ISO.diamond(p, x0 + .22, y0 + .22, A - .44, A - .44, 0, 'rim');
+      /* 岛面上的一小段路：进口 → 中心 → 出口 */
+      out += trail(n.i, 'M' + pt(p(n.inV[0], n.inV[1], 0)) + 'L' + pt(c));
+      if (n.outV) out += trail(n.i + 1, 'M' + pt(c) + 'L' + pt(p(n.outV[0], n.outV[1], 0)));
+      /* 左右两角的小方块当作树木 */
+      out += ISO.box(p, x0 + .2, y0 + A - .7, 0, .5, .5, .4 + r() * .8, 'prop');
+      var rh = .4 + r() * .8;
+      if (last) {
+        var fb = p(x0 + A - .45, y0 + .45, 0), ft = p(x0 + A - .45, y0 + .45, 1.9);
+        out += '<line class="flag-pole" x1="' + f(fb[0]) + '" y1="' + f(fb[1]) + '" x2="' + f(ft[0]) + '" y2="' + f(ft[1]) + '"/>' +
+          '<polygon class="flag" points="' + pt(ft) + ' ' + f(ft[0] + 15) + ',' + f(ft[1] + 5) + ' ' + f(ft[0]) + ',' + f(ft[1] + 10) + '"/>';
+      } else {
+        out += ISO.box(p, x0 + A - .7, y0 + .2, 0, .5, .5, rh, 'prop');
+      }
+      out += '<g class="pad-lift">' + ISO.box(p, n.x - PAD / 2, n.y - PAD / 2, 0, PAD, PAD, PH, 'cube pad') + '</g>';
+      /* 标签 */
+      var name = n.a.short, w = 9 + 12.5 + 6 + textW(name) + 9, th = 22;
+      var tx = c[0] - w / 2;
+      var ty = n.up ? c[1] - 2.1 * s - th : p(n.x + h2, n.y + h2, -H)[1] + 0.55 * s;
+      grow(tx, ty - 4); grow(tx + w, ty + th + 4);
+      out += '<g class="lvl-tag"><path d="' + bubble(tx, ty, w, th, c[0], n.up) + '"/>' +
+        '<text class="lvl-no" x="' + f(tx + 9) + '" y="' + f(ty + 15) + '">' + n.a.no + '</text>' +
+        '<text class="lvl-name" x="' + f(tx + 27.5) + '" y="' + f(ty + 15.5) + '">' + esc(name) + '</text></g>';
+      return out + '</a>';
+    }
+
+    var body = '';
+    /* 由远到近画：先上排，再下排 */
+    nodes.slice().sort(function (a, b) { return a.v - b.v || a.i - b.i; }).forEach(function (n) { body += island(n); });
+
+    /* 岛与岛之间的小路（画在岛之后，才能盖住近处岛的侧面） */
+    var K = 2.2, bridges = '';
+    var n0 = nodes[0], st = [n0.inV[0] - 2.2, n0.inV[1] + 2.2], sp = p(st[0], st[1], 0);
+    bridges += trail(0, 'M' + pt(sp) + 'L' + pt(p(n0.inV[0], n0.inV[1], 0)));
+    bridges += '<text class="map-cap" text-anchor="end" x="' + f(sp[0] - 6) + '" y="' + f(sp[1] + 3) + '">START</text>';
+    grow(sp[0] - 42, sp[1]);
+    for (var i = 1; i < nodes.length; i++) {
+      var a = nodes[i - 1].outV, b = nodes[i].inV, dv = Math.sign(nodes[i].v - nodes[i - 1].v);
+      bridges += trail(i, 'M' + pt(p(a[0], a[1], 0)) + 'C' + pt(p(a[0] + dv * K, a[1] + dv * K, 0)) + ' ' +
+        pt(p(b[0] - dv * K, b[1] - dv * K, 0)) + ' ' + pt(p(b[0], b[1], 0)));
+    }
+
+    /* 小宝石 = 当前所在关卡，悬停哪关就跳到哪关 */
+    var GEM = nodes.map(function (n) { return p(n.x, n.y, PH + 0.8); });
+    var gem = '<g class="gem" aria-hidden="true"><ellipse class="gem-shadow" cx="0" cy="' + f(0.8 * s) + '" rx="5" ry="2"/>' +
+      '<g class="gem-bob"><polygon class="gem-l" points="0,-7 0,7 -5,0"/><polygon class="gem-r" points="0,-7 5,0 0,7"/></g></g>';
+
+    var pad = 8, vb = [bb[0] - pad, bb[1] - pad, bb[2] - bb[0] + pad * 2, bb[3] - bb[1] + pad * 2].map(f).join(' ');
+    var el = document.getElementById('hero-art');
+    el.innerHTML = '<svg viewBox="' + vb + '" role="group" aria-label="关卡地图：6 个分区按 01 到 06 排成一条路线" focusable="false">' +
+      body + '<g class="bridges">' + bridges + '</g>' + gem + '</svg>';
+
+    var svg = el.querySelector('svg'), gemEl = svg.querySelector('.gem');
+    var lvls = svg.querySelectorAll('.lvl'), trails = svg.querySelectorAll('.trail');
+    function setActive(k) {
+      Array.prototype.forEach.call(lvls, function (l) {
+        var j = +l.getAttribute('data-i');
+        l.classList.toggle('is-lit', j === k);
+        l.classList.toggle('is-done', j < k);
+      });
+      Array.prototype.forEach.call(trails, function (t) { t.classList.toggle('is-on', +t.getAttribute('data-seg') <= k); });
+      gemEl.style.transform = 'translate(' + f(GEM[k][0]) + 'px,' + f(GEM[k][1]) + 'px)';
+    }
+    Array.prototype.forEach.call(lvls, function (l) {
+      var j = +l.getAttribute('data-i');
+      l.addEventListener('mouseenter', function () { setActive(j); });
+      l.addEventListener('focus', function () { setActive(j); });
+      l.addEventListener('blur', function () { setActive(0); });
+    });
+    svg.addEventListener('mouseleave', function () { setActive(0); });
+    setActive(0);
+  })();
 
   /* ---------- 菜单卡片 ---------- */
   /* 先用配置画出卡片；分区数据加载后再换上拼贴封面和代表资源。加载失败时保留线稿封面和简介。 */

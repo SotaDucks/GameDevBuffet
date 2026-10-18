@@ -190,19 +190,53 @@ a { color: inherit; }
 @media (max-width: 899px) { .hero-art { max-width: 380px; } }
 .hero-art svg { display: block; width: 100%; height: auto; overflow: visible; }
 .hero-caption { margin: 8px 0 0; text-align: center; color: var(--muted); font: 12px var(--mono); }
-.hero-art .floor, .hero-art .slot { cursor: pointer; text-decoration: none; }
-.hero-art .floor text, .hero-art .slot text { pointer-events: none; }
+.hero-art .floor { cursor: pointer; text-decoration: none; }
+.hero-art .floor text { pointer-events: none; }
 .t0 { font: 500 11px var(--mono); letter-spacing: .1em; fill: var(--muted); transition: fill .3s; }
 .t1 { font: 600 14px var(--sans); fill: var(--text-2); transition: fill .3s; }
 .t2 { font: 400 11px var(--mono); fill: var(--muted); }
 .leader { stroke: var(--line-2); stroke-width: 1; fill: none; vector-effect: non-scaling-stroke; transition: stroke .3s; }
 .leader-dot { fill: var(--line-2); transition: fill .3s; }
-.slot-name { font: 600 11px var(--sans); fill: var(--text-2); transition: fill .3s; }
 .is-lit .t0 { fill: var(--amber-ink); }
-.is-lit .slot-name { fill: var(--text); }
 .is-lit .t1 { fill: var(--text); }
 .is-lit .leader { stroke: var(--amber); }
 .is-lit .leader-dot { fill: var(--amber); }
+
+/* 首页关卡地图：浮空小岛 + 点状小路 + 跳来跳去的小宝石 */
+#hero-art { max-width: 560px; }
+.lvl { cursor: pointer; text-decoration: none; outline: none; animation: lvl-in .6s cubic-bezier(.2, .8, .2, 1) both; animation-delay: calc(var(--i) * 80ms + 80ms); }
+.lvl text { pointer-events: none; }
+.lvl .rim { fill: none; stroke: var(--line); stroke-width: 1; vector-effect: non-scaling-stroke; transition: stroke .35s; }
+.lvl .pad-lift { transition: transform .35s cubic-bezier(.2, .8, .2, 1); }
+.lvl.is-lit .pad-lift { transform: translateY(-3px); }
+.lvl.is-lit .rim { stroke: var(--amber); stroke-opacity: .45; }
+.lvl.is-lit .prop polygon { stroke: var(--amber); }
+.lvl.is-done .slab .f-top { stroke: var(--amber); stroke-opacity: .55; }
+.lvl.is-done .pad .f-top { fill: var(--amber-wash); stroke: var(--amber); stroke-opacity: .7; }
+.lvl-tag path { fill: var(--bg); stroke: var(--line-2); stroke-width: 1; vector-effect: non-scaling-stroke; transition: stroke .3s, fill .3s; }
+.lvl-no { font: 500 10px var(--mono); letter-spacing: .04em; fill: var(--muted); transition: fill .3s; }
+.lvl-name { font: 600 12px var(--sans); fill: var(--text-2); transition: fill .3s; }
+.lvl.is-done .lvl-no { fill: var(--amber-ink); }
+.lvl.is-lit .lvl-tag path { stroke: var(--amber); fill: color-mix(in srgb, var(--amber) 12%, var(--bg)); }
+.lvl.is-lit .lvl-no { fill: var(--amber-ink); }
+.lvl.is-lit .lvl-name { fill: var(--text); }
+.trail { fill: none; stroke: var(--line-2); stroke-width: 2.4; stroke-linecap: round; stroke-dasharray: 0 7; transition: stroke .3s; }
+.trail.is-on { stroke: var(--amber); animation: trail-march 1s linear infinite; }
+.bridges { animation: fade-in .6s .55s both; }
+.map-cap { font: 500 9px var(--mono); letter-spacing: .16em; fill: var(--amber-ink); }
+.flag-pole { stroke: var(--line-2); stroke-width: 1.2; vector-effect: non-scaling-stroke; }
+.flag { fill: var(--amber-soft); stroke: var(--amber); stroke-width: 1; stroke-linejoin: round; vector-effect: non-scaling-stroke; }
+.gem { pointer-events: none; transition: transform .45s cubic-bezier(.3, .7, .2, 1); }
+.gem-bob { animation: gem-bob 2.4s ease-in-out infinite; }
+.gem-l, .gem-r { stroke: var(--amber); stroke-width: 1; stroke-linejoin: round; vector-effect: non-scaling-stroke; }
+.gem-l { fill: var(--amber-fill); }
+.gem-r { fill: var(--amber-fill-r); }
+.gem-bob { filter: drop-shadow(0 0 6px var(--glow)); }
+.gem-shadow { fill: var(--glow); opacity: .5; }
+@keyframes lvl-in { from { opacity: 0; transform: translateY(8px); } }
+@keyframes fade-in { from { opacity: 0; } }
+@keyframes trail-march { to { stroke-dashoffset: -7; } }
+@keyframes gem-bob { 50% { transform: translateY(-4px); } }
 
 /* ---------- 工具栏（筛选 / 搜索） ---------- */
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
