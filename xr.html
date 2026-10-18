@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>XR 教程 · 游戏开发自助餐</title>
+  <meta name="description" content="把游戏带到头显和现实空间中。从头显开发教程、AR 平面识别，到 Meta Quest 的环境配置，按需要选择入口。">
+  <script src="assets/js/theme.js"></script>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="wordmark" href="index.html">游戏开发自助餐<em>· XR</em></a>
+      <nav class="area-nav" aria-label="分区">
+        <a href="inspiration.html">灵感刷刷区<sup>15</sup></a>
+        <a href="unity.html">Unity 引擎区<sup>8</sup></a>
+        <a href="ai-coding.html">AI 编程区<sup>4</sup></a>
+        <a href="art.html">游戏美术区<sup>42</sup></a>
+        <a class="is-active" aria-current="page" href="xr.html">XR 教程<sup>4</sup></a>
+        <a href="tools.html">好用小工具<sup>15</sup></a>
+      </nav>
+      <button id="theme-toggle" class="icon-btn" type="button" aria-label="切换明暗主题" title="切换明暗主题"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><circle cx="8" cy="8" r="6.2" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M8 1.8a6.2 6.2 0 0 1 0 12.4z" fill="currentColor"/></svg></button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="wrap hero-inner">
+        <div>
+          <p class="eyebrow">Area 05 / XR</p>
+          <h1>XR 教程</h1>
+          <p class="lead">把游戏带到头显和现实空间中。从头显开发教程、AR 平面识别，到 Meta Quest 的环境配置，按需要选择入口。</p>
+          <ul class="stats" aria-label="内容统计">
+            <li><b id="stat-items">4</b><span>条资源</span></li>
+            <li><b id="stat-platforms">3</b><span>类来源</span></li>
+            <li><b id="stat-groups">3</b><span>个分组</span></li>
+          </ul>
+        </div>
+        <div class="hero-art" id="hero-art"></div>
+      </div>
+    </section>
+
+    <div class="wrap">
+      <nav class="group-links" id="group-links" aria-label="分组直达"></nav>
+      <div class="toolbar" role="toolbar" aria-label="筛选资源">
+        <button class="chip" type="button" data-platform-chip="all" aria-pressed="true">全部</button>
+        <button class="chip" type="button" data-platform-chip="docs" aria-pressed="false">文档</button>
+        <button class="chip" type="button" data-platform-chip="website" aria-pressed="false">网站</button>
+        <button class="chip" type="button" data-platform-chip="youtube" aria-pressed="false">YouTube</button>
+        <label class="search">
+          <span class="sr-only">搜索资源</span>
+          <input id="q" type="search" placeholder="搜索名称、用途或提醒…" autocomplete="off">
+        </label>
+      </div>
+      <p class="count" id="count" aria-live="polite"></p>
+      <div id="groups"></div>
+      <p class="empty" id="empty" hidden>没有符合条件的资源，换个关键词或筛选条件试试。</p>
+      <noscript><p class="learning-note">请启用 JavaScript 以查看资源列表，或直接前往 <a href="https://miro.com/app/board/uXjVJhRcRPg=/" target="_blank" rel="noopener noreferrer">Miro 课程资料板</a>。</p></noscript>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <a href="https://miro.com/app/board/uXjVJhRcRPg=/?moveToWidget=3458764668079073272" target="_blank" rel="noopener noreferrer">内容整理自「游戏开发自助餐」课程资料板 ↗</a>
+      <a href="index.html">回到菜单 ↗</a>
+    </div>
+  </footer>
+  <script src="assets/js/iso.js"></script>
+  <script src="assets/js/xr-data.js"></script>
+  <script src="assets/js/inspiration.js"></script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+{
+  "date": "2026-10-18",
+  "root": "其他书签/Lectures/游戏开发自助餐",
+  "success": true,
+  "totalResults": 6,
+  "query": null,
+  "folderSearched": "游戏开发自助餐",
+  "bookmarks": [
+    {
+      "id": "281",
+      "title": "Best Code Architectures For Indie Games - YouTube",
+      "url": "https://www.youtube.com/watch?v=8WqYQ1OwxJ4&t=1s",
+      "dateAdded": 1792296692688,
+      "folderPath": "其他书签 > Lectures > 游戏开发自助餐"
+    },
+    {
+      "id": "280",
+      "title": "Indie Game Art: Style By Necessity - YouTube",
+      "url": "https://www.youtube.com/watch?v=IgJBLXBG1Yc&list=PLofegzJ9Wy5vH_yPxIUd8jBKr2BgMCd5o&index=4",
+      "dateAdded": 1792296324281,
+      "folderPath": "其他书签 > Lectures > 游戏开发自助餐"
+    },
+    {
+      "id": "279",
+      "title": "Nick Carver - YouTube",
+      "url": "https://www.youtube.com/@nickdcarver",
+      "dateAdded": 1792296288701,
+      "folderPath": "其他书签 > Lectures > 游戏开发自助餐"
+    },
+    {
+      "id": "278",
+      "title": "Best Pixel Art Games - YouTube",
+      "url": "https://www.youtube.com/playlist?list=PLxxJaB4u1JY4my1Q0RrPRjT-NSnf0H28h",
+      "dateAdded": 1792296275076,
+      "folderPath": "其他书签 > Lectures > 游戏开发自助餐"
+    },
+    {
+      "id": "277",
+      "title": "Indie Games Hub - YouTube",
+      "url": "https://www.youtube.com/@IndieHub01",
+      "dateAdded": 1792296239313,
+      "folderPath": "其他书签 > Lectures > 游戏开发自助餐"
+    },
+    {
+      "id": "272",
+      "title": "t3ssel8r - YouTube",
+      "url": "https://www.youtube.com/@t3ssel8r",
+      "dateAdded": 1792117912571,
+      "folderPath": "其他书签 > Lectures > 游戏开发自助餐"
+    }
+  ]
+}

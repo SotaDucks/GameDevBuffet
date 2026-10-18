@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>游戏灵感刷刷区 · 游戏开发自助餐</title>
+  <meta name="description" content="游戏设计频道、Game Jam 精选、设计讲解、作品与视觉风格参考，做游戏之前先多看多想。">
+  <script src="assets/js/theme.js"></script>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="wordmark" href="index.html">游戏开发自助餐<em>· 灵感</em></a>
+      <nav class="area-nav" aria-label="分区">
+        <a class="is-active" aria-current="page" href="inspiration.html">灵感刷刷区<sup>15</sup></a>
+        <a href="unity.html">Unity 引擎区<sup>8</sup></a>
+        <a href="ai-coding.html">AI 编程区<sup>4</sup></a>
+        <a href="art.html">游戏美术区<sup>42</sup></a>
+        <a href="xr.html">XR 教程<sup>4</sup></a>
+        <a href="tools.html">好用小工具<sup>15</sup></a>
+      </nav>
+      <button id="theme-toggle" class="icon-btn" type="button" aria-label="切换明暗主题" title="切换明暗主题"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><circle cx="8" cy="8" r="6.2" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M8 1.8a6.2 6.2 0 0 1 0 12.4z" fill="currentColor"/></svg></button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="wrap hero-inner">
+        <div>
+          <p class="eyebrow">Area 01 / Inspiration</p>
+          <h1>游戏灵感刷刷区</h1>
+          <p class="lead">做游戏之前，先多看、多玩、多想。这里整理了值得长期关注的游戏设计频道、年度 Game Jam 精选，以及设计讲解、作品合集与视觉风格参考。</p>
+          <ul class="stats" aria-label="内容统计">
+            <li><b id="stat-items">15</b><span>条资源</span></li>
+            <li><b id="stat-platforms">2</b><span>个平台</span></li>
+            <li><b id="stat-groups">4</b><span>个分组</span></li>
+          </ul>
+        </div>
+        <div class="hero-art" id="hero-art"></div>
+      </div>
+    </section>
+
+    <div class="wrap">
+      <nav class="group-links" id="group-links" aria-label="分组直达"></nav>
+      <div class="toolbar" role="toolbar" aria-label="筛选">
+        <button class="chip" type="button" data-platform-chip="all" aria-pressed="true">全部</button>
+        <button class="chip" type="button" data-platform-chip="youtube" aria-pressed="false">YouTube</button>
+        <button class="chip" type="button" data-platform-chip="bilibili" aria-pressed="false">Bilibili</button>
+        <span class="tb-sep" aria-hidden="true"></span>
+        <button class="chip hot" id="chip-hot" type="button" aria-pressed="false">只看强烈推荐</button>
+        <label class="search">
+          <span class="sr-only" style="position:absolute;left:-9999px">搜索</span>
+          <input id="q" type="search" placeholder="搜索标题或介绍…" autocomplete="off">
+        </label>
+      </div>
+      <p class="count" id="count" aria-live="polite"></p>
+
+      <div id="groups"></div>
+      <p class="empty" id="empty" hidden>没有符合条件的资源，换个筛选条件试试。</p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <span>内容整理自课程资料板与 Chrome 书签</span>
+      <a href="index.html">回到菜单 ↗</a>
+    </div>
+  </footer>
+
+  <script src="assets/js/iso.js"></script>
+  <script src="assets/js/inspiration-data.js"></script>
+  <script src="assets/js/inspiration.js"></script>
+</body>
+</html>

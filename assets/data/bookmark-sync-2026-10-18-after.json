@@ -1,0 +1,1274 @@
+{
+  "date": "2026-10-18",
+  "root": "其他书签/Lectures/游戏开发自助餐",
+  "journal": {
+    "createdBookmarks": [
+      {
+        "id": "291",
+        "parentId": "290",
+        "title": "Game Maker's Toolkit"
+      },
+      {
+        "id": "292",
+        "parentId": "290",
+        "title": "Extra Credits"
+      },
+      {
+        "id": "293",
+        "parentId": "290",
+        "title": "GDC Festival of Gaming"
+      },
+      {
+        "id": "294",
+        "parentId": "290",
+        "title": "汗先生的集游册"
+      },
+      {
+        "id": "295",
+        "parentId": "290",
+        "title": "Lee哥的游戏开发加油站"
+      },
+      {
+        "id": "297",
+        "parentId": "296",
+        "title": "GMTK Game Jam 2025 精选"
+      },
+      {
+        "id": "298",
+        "parentId": "296",
+        "title": "GMTK Game Jam 2024 精选"
+      },
+      {
+        "id": "299",
+        "parentId": "296",
+        "title": "GMTK Game Jam 2023 精选"
+      },
+      {
+        "id": "301",
+        "parentId": "300",
+        "title": "教会我游戏设计的 100 个游戏"
+      },
+      {
+        "id": "302",
+        "parentId": "300",
+        "title": "从简单的设置中学习游戏设计"
+      },
+      {
+        "id": "306",
+        "parentId": "305",
+        "title": "Unity 6 如何下载安装"
+      },
+      {
+        "id": "308",
+        "parentId": "307",
+        "title": "GMTK · Unity 完全小白教程（中文字幕）"
+      },
+      {
+        "id": "310",
+        "parentId": "309",
+        "title": "Unity 2D 角色移动教程"
+      },
+      {
+        "id": "311",
+        "parentId": "309",
+        "title": "为 Unity 游戏制作精灵图"
+      },
+      {
+        "id": "313",
+        "parentId": "312",
+        "title": "Unity Starter Assets 入门"
+      },
+      {
+        "id": "316",
+        "parentId": "315",
+        "title": "Unity 2D 视差背景效果"
+      },
+      {
+        "id": "317",
+        "parentId": "315",
+        "title": "Unity 角色控制器与 Locomotion"
+      },
+      {
+        "id": "320",
+        "parentId": "319",
+        "title": "Cursor"
+      },
+      {
+        "id": "321",
+        "parentId": "319",
+        "title": "TRAE"
+      },
+      {
+        "id": "322",
+        "parentId": "319",
+        "title": "Google Antigravity"
+      },
+      {
+        "id": "323",
+        "parentId": "319",
+        "title": "Codex"
+      },
+      {
+        "id": "326",
+        "parentId": "325",
+        "title": "手绘与数字绘画"
+      },
+      {
+        "id": "327",
+        "parentId": "325",
+        "title": "Aseprite"
+      },
+      {
+        "id": "328",
+        "parentId": "325",
+        "title": "Aseprite 二十分钟快速上手"
+      },
+      {
+        "id": "329",
+        "parentId": "325",
+        "title": "Adobe Photoshop"
+      },
+      {
+        "id": "330",
+        "parentId": "325",
+        "title": "Adobe Illustrator"
+      },
+      {
+        "id": "331",
+        "parentId": "325",
+        "title": "用 Photoshop 制作精灵图"
+      },
+      {
+        "id": "333",
+        "parentId": "332",
+        "title": "Nano Banana / Google AI Studio"
+      },
+      {
+        "id": "334",
+        "parentId": "332",
+        "title": "Midjourney"
+      },
+      {
+        "id": "335",
+        "parentId": "332",
+        "title": "Midjourney 零基础入门教程"
+      },
+      {
+        "id": "337",
+        "parentId": "336",
+        "title": "Spine"
+      },
+      {
+        "id": "338",
+        "parentId": "336",
+        "title": "Spine：网格、权重与走路动画"
+      },
+      {
+        "id": "339",
+        "parentId": "336",
+        "title": "Unity 2D Animation"
+      },
+      {
+        "id": "340",
+        "parentId": "336",
+        "title": "不依赖 Photoshop 的 Unity 2D 绑定"
+      },
+      {
+        "id": "341",
+        "parentId": "336",
+        "title": "Aseprite：像素逐帧动画入门"
+      },
+      {
+        "id": "343",
+        "parentId": "342",
+        "title": "GPT Image / ChatGPT"
+      },
+      {
+        "id": "344",
+        "parentId": "342",
+        "title": "AI 游戏人物帧序列工作流"
+      },
+      {
+        "id": "345",
+        "parentId": "342",
+        "title": "用视频模型制作精灵图"
+      },
+      {
+        "id": "346",
+        "parentId": "342",
+        "title": "即梦"
+      },
+      {
+        "id": "347",
+        "parentId": "342",
+        "title": "可灵 Kling AI"
+      },
+      {
+        "id": "348",
+        "parentId": "342",
+        "title": "Tapnow"
+      },
+      {
+        "id": "350",
+        "parentId": "349",
+        "title": "Blender"
+      },
+      {
+        "id": "351",
+        "parentId": "349",
+        "title": "Blender → Unity：模型导出"
+      },
+      {
+        "id": "352",
+        "parentId": "349",
+        "title": "Blender → Unity：材质与贴图导出"
+      },
+      {
+        "id": "354",
+        "parentId": "353",
+        "title": "Unity Asset Store"
+      },
+      {
+        "id": "355",
+        "parentId": "353",
+        "title": "资产变紫色？材质与 URP 转换教程"
+      },
+      {
+        "id": "356",
+        "parentId": "353",
+        "title": "Tripo AI"
+      },
+      {
+        "id": "357",
+        "parentId": "353",
+        "title": "Meshy"
+      },
+      {
+        "id": "358",
+        "parentId": "353",
+        "title": "SAM 3D"
+      },
+      {
+        "id": "359",
+        "parentId": "353",
+        "title": "混元 3D"
+      },
+      {
+        "id": "360",
+        "parentId": "353",
+        "title": "Rodin / Hyper3D"
+      },
+      {
+        "id": "361",
+        "parentId": "353",
+        "title": "生成模型的 Blender → Unity 中转"
+      },
+      {
+        "id": "362",
+        "parentId": "353",
+        "title": "生成模型的材质与贴图导出"
+      },
+      {
+        "id": "364",
+        "parentId": "363",
+        "title": "Mixamo"
+      },
+      {
+        "id": "365",
+        "parentId": "363",
+        "title": "Unity 动画与 Mixamo · 基础篇"
+      },
+      {
+        "id": "366",
+        "parentId": "363",
+        "title": "给自己的模型绑定 Mixamo 动画"
+      },
+      {
+        "id": "367",
+        "parentId": "363",
+        "title": "Cascadeur"
+      },
+      {
+        "id": "368",
+        "parentId": "363",
+        "title": "Cascadeur：制作第一个动画"
+      },
+      {
+        "id": "370",
+        "parentId": "369",
+        "title": "带动画的 Unity 资产"
+      },
+      {
+        "id": "372",
+        "parentId": "371",
+        "title": "Universal LPC Spritesheet Generator"
+      },
+      {
+        "id": "373",
+        "parentId": "371",
+        "title": "Auto-Rig Pro 角色绑定教程"
+      },
+      {
+        "id": "374",
+        "parentId": "371",
+        "title": "Rokoko Create"
+      },
+      {
+        "id": "375",
+        "parentId": "371",
+        "title": "Anything World"
+      },
+      {
+        "id": "379",
+        "parentId": "378",
+        "title": "Valem Tutorials"
+      },
+      {
+        "id": "381",
+        "parentId": "380",
+        "title": "Vuforia Ground Plane"
+      },
+      {
+        "id": "383",
+        "parentId": "382",
+        "title": "Meta Quest · Unity 环境配置"
+      },
+      {
+        "id": "384",
+        "parentId": "382",
+        "title": "Quest 连接与登录问题参考"
+      },
+      {
+        "id": "387",
+        "parentId": "386",
+        "title": "ScreenToGif"
+      },
+      {
+        "id": "388",
+        "parentId": "386",
+        "title": "Audacity"
+      },
+      {
+        "id": "389",
+        "parentId": "386",
+        "title": "讯飞智作"
+      },
+      {
+        "id": "390",
+        "parentId": "386",
+        "title": "ElevenLabs"
+      },
+      {
+        "id": "392",
+        "parentId": "391",
+        "title": "JustSketchMe"
+      },
+      {
+        "id": "393",
+        "parentId": "391",
+        "title": "Mapgen2 岛屿地图生成器"
+      },
+      {
+        "id": "394",
+        "parentId": "391",
+        "title": "Pixel It"
+      },
+      {
+        "id": "396",
+        "parentId": "395",
+        "title": "React Bits"
+      },
+      {
+        "id": "397",
+        "parentId": "395",
+        "title": "ShaderLibrary"
+      },
+      {
+        "id": "398",
+        "parentId": "395",
+        "title": "Shader 学习文档 · 连连看对应节点"
+      },
+      {
+        "id": "399",
+        "parentId": "395",
+        "title": "FreeStylized 天空盒"
+      },
+      {
+        "id": "401",
+        "parentId": "400",
+        "title": "TripoSplat"
+      },
+      {
+        "id": "402",
+        "parentId": "400",
+        "title": "Holopix AI"
+      },
+      {
+        "id": "403",
+        "parentId": "400",
+        "title": "Anything World / Everything Universe"
+      },
+      {
+        "id": "404",
+        "parentId": "400",
+        "title": "Sprite Maker"
+      }
+    ],
+    "createdFolders": [
+      {
+        "id": "289",
+        "parentId": "276",
+        "title": "灵感刷刷区"
+      },
+      {
+        "id": "290",
+        "parentId": "289",
+        "title": "频道订阅"
+      },
+      {
+        "id": "296",
+        "parentId": "289",
+        "title": "Game Jam 精选"
+      },
+      {
+        "id": "300",
+        "parentId": "289",
+        "title": "游戏设计精讲"
+      },
+      {
+        "id": "303",
+        "parentId": "289",
+        "title": "作品与视觉参考"
+      },
+      {
+        "id": "304",
+        "parentId": "276",
+        "title": "Unity 引擎区"
+      },
+      {
+        "id": "305",
+        "parentId": "304",
+        "title": "下载安装"
+      },
+      {
+        "id": "307",
+        "parentId": "304",
+        "title": "零基础入门"
+      },
+      {
+        "id": "309",
+        "parentId": "304",
+        "title": "2D 游戏路线"
+      },
+      {
+        "id": "312",
+        "parentId": "304",
+        "title": "3D 游戏路线"
+      },
+      {
+        "id": "314",
+        "parentId": "304",
+        "title": "开发架构与实践"
+      },
+      {
+        "id": "315",
+        "parentId": "304",
+        "title": "补充教程"
+      },
+      {
+        "id": "318",
+        "parentId": "276",
+        "title": "AI 编程区"
+      },
+      {
+        "id": "319",
+        "parentId": "318",
+        "title": "AI 编程工具"
+      },
+      {
+        "id": "324",
+        "parentId": "276",
+        "title": "游戏美术区"
+      },
+      {
+        "id": "325",
+        "parentId": "324",
+        "title": "2D 美术资产 · 手搓"
+      },
+      {
+        "id": "332",
+        "parentId": "324",
+        "title": "2D 美术资产 · AI 路线"
+      },
+      {
+        "id": "336",
+        "parentId": "324",
+        "title": "2D 动画 · 手搓"
+      },
+      {
+        "id": "342",
+        "parentId": "324",
+        "title": "2D 动画 · AI 路线"
+      },
+      {
+        "id": "349",
+        "parentId": "324",
+        "title": "3D 美术资产 · 手搓"
+      },
+      {
+        "id": "353",
+        "parentId": "324",
+        "title": "3D 美术资产 · 资产与 AI"
+      },
+      {
+        "id": "363",
+        "parentId": "324",
+        "title": "3D 动画 · 半手搓"
+      },
+      {
+        "id": "369",
+        "parentId": "324",
+        "title": "3D 动画 · 现成资源"
+      },
+      {
+        "id": "371",
+        "parentId": "324",
+        "title": "角色与绑定补充"
+      },
+      {
+        "id": "376",
+        "parentId": "324",
+        "title": "美术风格与技术参考"
+      },
+      {
+        "id": "377",
+        "parentId": "276",
+        "title": "XR 教程"
+      },
+      {
+        "id": "378",
+        "parentId": "377",
+        "title": "头显开发教程"
+      },
+      {
+        "id": "380",
+        "parentId": "377",
+        "title": "AR 识别与平面"
+      },
+      {
+        "id": "382",
+        "parentId": "377",
+        "title": "Meta Quest 环境配置"
+      },
+      {
+        "id": "385",
+        "parentId": "276",
+        "title": "好用小工具"
+      },
+      {
+        "id": "386",
+        "parentId": "385",
+        "title": "录屏、声音与配音"
+      },
+      {
+        "id": "391",
+        "parentId": "385",
+        "title": "姿势、地图与像素化"
+      },
+      {
+        "id": "395",
+        "parentId": "385",
+        "title": "动画、Shader 与天空盒"
+      },
+      {
+        "id": "400",
+        "parentId": "385",
+        "title": "AI 素材与 3D 工具"
+      }
+    ],
+    "existingBookmarks": [],
+    "movedBookmarks": [
+      {
+        "from": "276",
+        "id": "277",
+        "title": "Indie Games Hub - YouTube",
+        "to": "290"
+      },
+      {
+        "from": "276",
+        "id": "278",
+        "title": "Best Pixel Art Games - YouTube",
+        "to": "303"
+      },
+      {
+        "from": "276",
+        "id": "281",
+        "title": "Best Code Architectures For Indie Games - YouTube",
+        "to": "314"
+      },
+      {
+        "from": "276",
+        "id": "272",
+        "title": "t3ssel8r - YouTube",
+        "to": "376"
+      },
+      {
+        "from": "276",
+        "id": "279",
+        "title": "Nick Carver - YouTube",
+        "to": "376"
+      },
+      {
+        "from": "276",
+        "id": "280",
+        "title": "Indie Game Art: Style By Necessity - YouTube",
+        "to": "376"
+      }
+    ],
+    "rootId": "276",
+    "sections": [
+      {
+        "title": "灵感刷刷区",
+        "written": 12
+      },
+      {
+        "title": "Unity 引擎区",
+        "written": 8
+      },
+      {
+        "title": "AI 编程区",
+        "written": 4
+      },
+      {
+        "title": "游戏美术区",
+        "written": 45
+      },
+      {
+        "title": "XR 教程",
+        "written": 4
+      },
+      {
+        "title": "好用小工具",
+        "written": 15
+      }
+    ]
+  },
+  "bookmarks": [
+    {
+      "id": "387",
+      "title": "ScreenToGif",
+      "url": "https://www.screentogif.com/",
+      "dateAdded": 1792300571331,
+      "folderPath": "其他书签 > Lectures > 游戏开发自助餐 > 好用小工具 > 录屏、声音与配音"
+    },
+    {
+      "id": "388",
+      "title": "Audacity",
+      "url": "https://www.audacityteam.org/",
+      "dateAdded": 1792300571332,
+      "folderPath": "其他书签 > Lectures > 游戏开发自助餐 > 好用小工具 > 录屏、声音与配音"
+    },
+    {
+      "id": "389",
+      "title": "讯飞智作",
+      "url": "https://peiyin.xunfei.cn/",
+      "dateAdded": 1792300571335,
+      "folderPath": "其他书签 > Lectures > 游戏开发自助餐 > 好用小工具 > 录屏、声音与配音"
+    },
+    {
+      "id": "390",
+      "title": "ElevenLabs",
+      "url": "https://elevenlabs.io/",
+      "dateAdded": 1792300571335,
+      "folderPath": "其他书签 > Lectures > 游戏开发自助餐 > 好用小工具 > 录屏、声音与配音"
+    },
+    {
+      "id": "392",
+      "title": "JustSketchMe",
+      "url": "https://app.justsketch.me/?lang=en",
+      "dateAdded": 1792300571336,
+      "folderPath": "其他书签 > Lectures > 游戏开发自助餐 > 好用小工具 > 姿势、地图与像素化"
+    },
+    {
+      "id": "393",
+      "title": "Mapgen2 岛屿地图生成器",
+      "url": "https://www.redblobgames.com/maps/mapgen2/",
+      "dateAdded": 1792300571336,
+      "folderPath": "其他书签 > Lectures > 游戏开发自助餐 > 好用小工具 > 姿势、地图与像素化"
+    },
+    {
+      "id": "394",
+      "title": "Pixel It",
+      "url": "https://giventofly.github.io/pixelit/",
+      "dateAdded": 1792300571336,
+      "folderPath": "其他书签 > Lectures > 游戏开发自助餐 > 好用小工具 > 姿势、地图与像素化"
+    },
+    {
+      "id": "396",
+      "title": "React Bits",
+      "url": "https://reactbits.dev/",
+      "dateAdded": 1792300571337,
+      "folderPath": "其他书签 > Lectures > 游戏开发自助餐 > 好用小工具 > 动画、Shader 与天空盒"
+    },
+    {
+      "id": "397",
+      "title": "ShaderLibrary",
+      "url": "https://github.com/falseeeeeeeeee/ShaderLibrary",
+      "dateAdded": 1792300571338,
+      "folderPath": "其他书签 > Lectures > 游戏开发自助餐 > 好用小工具 > 动画、Shader 与天空盒"
+    },
+    {
+      "id": "398",
+      "title": "Shader 学习文档 · 连连看对应节点",
+      "url": "https://www.yuque.com/ermuqingming/dkda9m/udnxmy",
+      "dateAdded": 1792300571338,
+      "folderPath": "其他书签 > Lectures > 游戏开发自助餐 > 好用小工具 > 动画、Shader 与天空盒"
+    },
+    {
+      "id": "399",
+      "title": "FreeStylized 天空盒",
+      "url": "https://freestylized.com/all-skybox/",
+      "dateAdded": 1792300571338,
+      "folderPath": "其他书签 > Lectures > 游戏开发自助餐 > 好用小工具 > 动画、Shader 与天空盒"
+    },
+    {
+      "id": "401",
+      "title": "TripoSplat",
+      "url": "https://github.com/VAST-AI-Research/TripoSplat?tab=readme-ov-file",
+      "dateAdded": 1792300571343,
+      "folderPath": "其他书签 > Lectures > 游戏开发自助餐 > 好用小工具 > AI 素材与 3D 工具"
+    },
+    {
+      "id": "402",
+      "title": "Holopix AI",
+      "url": "https://holopix.cn/board/all",
+      "dateAdded": 1792300571343,
+      "folderPath": "其他书签 > Lectures > 游戏开发自助餐 > 好用小工具 > AI 素材与 3D 工具"
+    },
+    {
+      "id": "403",
+      "title": "Anything World / Everything Universe",
+      "url": "https://app.anything.world/u/my-world/my-models",
+      "dateAdded": 1792300571343,
+      "folderPath": "其他书签 > Lectures > 游戏开发自助餐 > 好用小工具 > AI 素材与 3D 工具"
+    },
+    {
+      "id": "404",
+      "title": "Sprite Maker",
+      "url": "https://github.com/JohnKinyanjui/sprite-maker",
+      "dateAdded": 1792300571344,
+      "folderPath": "其他书签 > Lectures > 游戏开发自助餐 > 好用小工具 > AI 素材与 3D 工具"
+    },
+    {
+      "id": "379",
+      "title": "Valem Tutorials",
+      "url": "https://www.youtube.com/@ValemTutorials",
+      "dateAdded": 1792300571329,
+      "folderPath": "其他书签 > Lectures > 游戏开发自助餐 > XR 教程 > 头显开发教程"
+    },
+    {
+      "id": "381",
+      "title": "Vuforia Ground Plane",
+      "url": "https://developer.vuforia.com/library/vuforia-engine/environments/ground-plane/ground-plane/",
+      "dateAdded": 1792300571329,
+      "folderPath": "其他书签 > Lectures > 游戏开发自助餐 > XR 教程 > AR 识别与平面"
+    },
+    {
+      "id": "383",
+      "title": "Meta Quest · Unity 环境配置",
+      "url": "https://developer.oculus.com/documentation/unity/unity-upst-overview",
+      "dateAdded": 1792300571330,
+      "folderPath": "其他书签 > Lectures > 游戏开发自助餐 > XR 教程 > Meta Quest 环境配置"
+    },
+    {
+      "id": "384",
+      "title": "Quest 连接与登录问题参考",
+      "url": "https://www.bilibili.com/opus/555041737514441795",
+      "dateAdded": 1792300571330,
+      "folderPath": "其他书签 > Lectures > 游戏开发自助餐 > XR 教程 > Meta Quest 环境配置"
+    },
+    {
+      "id": "326",
+      "title": "手绘与数字绘画",
+      "url": "https://miro.com/app/board/uXjVJhRcRPg=/?moveToWidget=3458764650942402690",
+      "dateAdded": 1792300571290,
+      "folderPath": "其他书签 > Lectures > 游戏开发自助餐 > 游戏美术区 > 2D 美术资产 · 手搓"
+    },
+    {
+      "id": "327",
+      "title": "Aseprite",
+      "url": "https://www.aseprite.org/",
+      "dateAdded": 1792300571290,
+      "folderPath": "其他书签 > Lectures > 游戏开发自助餐 > 游戏美术区 > 2D 美术资产 · 手搓"
+    },
+    {
+      "id": "328",
+      "title": "Aseprite 二十分钟快速上手",
+      "url": "https://www.bilibili.com/video/BV1o7411C7zo/",
+      "dateAdded": 1792300571293,
+      "folderPath": "其他书签 > Lectures > 游戏开发自助餐 > 游戏美术区 > 2D 美术资产 · 手搓"
+    },
+    {
+      "id": "329",
+      "title": "Adobe Photoshop",
+      "url": "https://www.adobe.com/products/photoshop.html",
+      "dateAdded": 1792300571294,
+      "folderPath": "其他书签 > Lectures > 游戏开发自助餐 > 游戏美术区 > 2D 美术资产 · 手搓"
+    },
+    {
+      "id": "330",
+      "title": "Adobe Illustrator",
+      "url": "https://www.adobe.com/products/illustrator.html",
+      "dateAdded": 1792300571294,
+      "folderPath": "其他书签 > Lectures > 游戏开发自助餐 > 游戏美术区 > 2D 美术资产 · 手搓"
+    },
+    {
+      "id": "331",
+      "title": "用 Photoshop 制作精灵图",
+      "url": "https://www.youtube.com/watch?v=uMBfAhp244w",
+      "dateAdded": 1792300571295,
+      "folderPath": "其他书签 > Lectures > 游戏开发自助餐 > 游戏美术区 > 2D 美术资产 · 手搓"
+    },
+    {
+      "id": "333",
+      "title": "Nano Banana / Google AI Studio",
+      "url": "https://aistudio.google.com/",
+      "dateAdded": 1792300571296,
+      "folderPath": "其他书签 > Lectures > 游戏开发自助餐 > 游戏美术区 > 2D 美术资产 · AI 路线"
+    },
+    {
+      "id": "334",
+      "title": "Midjourney",
+      "url": "https://www.midjourney.com/explore?tab=video_top",
+      "dateAdded": 1792300571296,
+      "folderPath": "其他书签 > Lectures > 游戏开发自助餐 > 游戏美术区 > 2D 美术资产 · AI 路线"
+    },
+    {
+      "id": "335",
+      "title": "Midjourney 零基础入门教程",
+      "url": "https://www.bilibili.com/video/BV1WuU1B9Exj/",
+      "dateAdded": 1792300571296,
+      "folderPath": "其他书签 > Lectures > 游戏开发自助餐 > 游戏美术区 > 2D 美术资产 · AI 路线"
+    },
+    {
+      "id": "337",
+      "title": "Spine",
+      "url": "https://esotericsoftware.com/",
+      "dateAdded": 1792300571300,
+      "folderPath": "其他书签 > Lectures > 游戏开发自助餐 > 游戏美术区 > 2D 动画 · 手搓"
+    },
+    {
+      "id": "338",
+      "title": "Spine：网格、权重与走路动画",
+      "url": "https://www.bilibili.com/video/BV1eZ4y1P7ec?p=4",
+      "dateAdded": 1792300571301,
+      "folderPath": "其他书签 > Lectures > 游戏开发自助餐 > 游戏美术区 > 2D 动画 · 手搓"
+    },
+    {
+      "id": "339",
+      "title": "Unity 2D Animation",
+      "url": "https://docs.unity3d.com/Packages/com.unity.2d.animation@latest",
+      "dateAdded": 1792300571301,
+      "folderPath": "其他书签 > Lectures > 游戏开发自助餐 > 游戏美术区 > 2D 动画 · 手搓"
+    },
+    {
+      "id": "340",
+      "title": "不依赖 Photoshop 的 Unity 2D 绑定",
+      "url": "https://www.youtube.com/watch?v=t3HdlMCTdNU",
+      "dateAdded": 1792300571301,
+      "folderPath": "其他书签 > Lectures > 游戏开发自助餐 > 游戏美术区 > 2D 动画 · 手搓"
+    },
+    {
+      "id": "341",
+      "title": "Aseprite：像素逐帧动画入门",
+      "url": "https://www.bilibili.com/video/BV1o7411C7zo/",
+      "dateAdded": 1792300571302,
+      "folderPath": "其他书签 > Lectures > 游戏开发自助餐 > 游戏美术区 > 2D 动画 · 手搓"
+    },
+    {
+      "id": "343",
+      "title": "GPT Image / ChatGPT",
+      "url": "https://chatgpt.com/",
+      "dateAdded": 1792300571302,
+      "folderPath": "其他书签 > Lectures > 游戏开发自助餐 > 游戏美术区 > 2D 动画 · AI 路线"
+    },
+    {
+      "id": "344",
+      "title": "AI 游戏人物帧序列工作流",
+      "url": "https://www.bilibili.com/video/BV1XkUKBZEHH/",
+      "dateAdded": 1792300571302,
+      "folderPath": "其他书签 > Lectures > 游戏开发自助餐 > 游戏美术区 > 2D 动画 · AI 路线"
+    },
+    {
+      "id": "345",
+      "title": "用视频模型制作精灵图",
+      "url": "https://miro.com/app/board/uXjVJhRcRPg=/?moveToWidget=3458764673185909075",
+      "dateAdded": 1792300571303,
+      "folderPath": "其他书签 > Lectures > 游戏开发自助餐 > 游戏美术区 > 2D 动画 · AI 路线"
+    },
+    {
+      "id": "346",
+      "title": "即梦",
+      "url": "https://jimeng.jianying.com/",
+      "dateAdded": 1792300571303,
+      "folderPath": "其他书签 > Lectures > 游戏开发自助餐 > 游戏美术区 > 2D 动画 · AI 路线"
+    },
+    {
+      "id": "347",
+      "title": "可灵 Kling AI",
+      "url": "https://app.klingai.com/cn/",
+      "dateAdded": 1792300571303,
+      "folderPath": "其他书签 > Lectures > 游戏开发自助餐 > 游戏美术区 > 2D 动画 · AI 路线"
+    },
+    {
+      "id": "348",
+      "title": "Tapnow",
+      "url": "https://miro.com/app/board/uXjVJhRcRPg=/?moveToWidget=3458764665702493873",
+      "dateAdded": 1792300571303,
+      "folderPath": "其他书签 > Lectures > 游戏开发自助餐 > 游戏美术区 > 2D 动画 · AI 路线"
+    },
+    {
+      "id": "350",
+      "title": "Blender",
+      "url": "https://www.blender.org/",
+      "dateAdded": 1792300571307,
+      "folderPath": "其他书签 > Lectures > 游戏开发自助餐 > 游戏美术区 > 3D 美术资产 · 手搓"
+    },
+    {
+      "id": "351",
+      "title": "Blender → Unity：模型导出",
+      "url": "https://www.youtube.com/watch?v=oBhCxC1hUg4&list=PLofegzJ9Wy5vH_yPxIUd8jBKr2BgMCd5o",
+      "dateAdded": 1792300571308,
+      "folderPath": "其他书签 > Lectures > 游戏开发自助餐 > 游戏美术区 > 3D 美术资产 · 手搓"
+    },
+    {
+      "id": "352",
+      "title": "Blender → Unity：材质与贴图导出",
+      "url": "https://www.youtube.com/watch?v=yloupOUjMOA&list=PLofegzJ9Wy5vH_yPxIUd8jBKr2BgMCd5o&index=2",
+      "dateAdded": 1792300571308,
+      "folderPath": "其他书签 > Lectures > 游戏开发自助餐 > 游戏美术区 > 3D 美术资产 · 手搓"
+    },
+    {
+      "id": "354",
+      "title": "Unity Asset Store",
+      "url": "https://assetstore.unity.com/",
+      "dateAdded": 1792300571309,
+      "folderPath": "其他书签 > Lectures > 游戏开发自助餐 > 游戏美术区 > 3D 美术资产 · 资产与 AI"
+    },
+    {
+      "id": "355",
+      "title": "资产变紫色？材质与 URP 转换教程",
+      "url": "https://www.bilibili.com/video/BV1Tu411p7VZ",
+      "dateAdded": 1792300571309,
+      "folderPath": "其他书签 > Lectures > 游戏开发自助餐 > 游戏美术区 > 3D 美术资产 · 资产与 AI"
+    },
+    {
+      "id": "356",
+      "title": "Tripo AI",
+      "url": "https://www.tripo3d.ai/",
+      "dateAdded": 1792300571309,
+      "folderPath": "其他书签 > Lectures > 游戏开发自助餐 > 游戏美术区 > 3D 美术资产 · 资产与 AI"
+    },
+    {
+      "id": "357",
+      "title": "Meshy",
+      "url": "https://www.meshy.ai/",
+      "dateAdded": 1792300571309,
+      "folderPath": "其他书签 > Lectures > 游戏开发自助餐 > 游戏美术区 > 3D 美术资产 · 资产与 AI"
+    },
+    {
+      "id": "358",
+      "title": "SAM 3D",
+      "url": "https://github.com/facebookresearch/sam-3d-objects",
+      "dateAdded": 1792300571310,
+      "folderPath": "其他书签 > Lectures > 游戏开发自助餐 > 游戏美术区 > 3D 美术资产 · 资产与 AI"
+    },
+    {
+      "id": "359",
+      "title": "混元 3D",
+      "url": "https://3d.hunyuan.tencent.com/",
+      "dateAdded": 1792300571311,
+      "folderPath": "其他书签 > Lectures > 游戏开发自助餐 > 游戏美术区 > 3D 美术资产 · 资产与 AI"
+    },
+    {
+      "id": "360",
+      "title": "Rodin / Hyper3D",
+      "url": "https://hyper3d.ai/?lang=zh",
+      "dateAdded": 1792300571314,
+      "folderPath": "其他书签 > Lectures > 游戏开发自助餐 > 游戏美术区 > 3D 美术资产 · 资产与 AI"
+    },
+    {
+      "id": "361",
+      "title": "生成模型的 Blender → Unity 中转",
+      "url": "https://www.youtube.com/watch?v=oBhCxC1hUg4&list=PLofegzJ9Wy5vH_yPxIUd8jBKr2BgMCd5o",
+      "dateAdded": 1792300571315,
+      "folderPath": "其他书签 > Lectures > 游戏开发自助餐 > 游戏美术区 > 3D 美术资产 · 资产与 AI"
+    },
+    {
+      "id": "362",
+      "title": "生成模型的材质与贴图导出",
+      "url": "https://www.youtube.com/watch?v=yloupOUjMOA&list=PLofegzJ9Wy5vH_yPxIUd8jBKr2BgMCd5o&index=2",
+      "dateAdded": 1792300571315,
+      "folderPath": "其他书签 > Lectures > 游戏开发自助餐 > 游戏美术区 > 3D 美术资产 · 资产与 AI"
+    },
+    {
+      "id": "364",
+      "title": "Mixamo",
+      "url": "https://www.mixamo.com/",
+      "dateAdded": 1792300571317,
+      "folderPath": "其他书签 > Lectures > 游戏开发自助餐 > 游戏美术区 > 3D 动画 · 半手搓"
+    },
+    {
+      "id": "365",
+      "title": "Unity 动画与 Mixamo · 基础篇",
+      "url": "https://www.bilibili.com/video/BV1VcZgYKEfv/",
+      "dateAdded": 1792300571317,
+      "folderPath": "其他书签 > Lectures > 游戏开发自助餐 > 游戏美术区 > 3D 动画 · 半手搓"
+    },
+    {
+      "id": "366",
+      "title": "给自己的模型绑定 Mixamo 动画",
+      "url": "https://www.youtube.com/watch?v=2T0hDIoQKNc",
+      "dateAdded": 1792300571317,
+      "folderPath": "其他书签 > Lectures > 游戏开发自助餐 > 游戏美术区 > 3D 动画 · 半手搓"
+    },
+    {
+      "id": "367",
+      "title": "Cascadeur",
+      "url": "https://cascadeur.com/",
+      "dateAdded": 1792300571317,
+      "folderPath": "其他书签 > Lectures > 游戏开发自助餐 > 游戏美术区 > 3D 动画 · 半手搓"
+    },
+    {
+      "id": "368",
+      "title": "Cascadeur：制作第一个动画",
+      "url": "https://www.youtube.com/watch?v=BsMK31XRz2s",
+      "dateAdded": 1792300571318,
+      "folderPath": "其他书签 > Lectures > 游戏开发自助餐 > 游戏美术区 > 3D 动画 · 半手搓"
+    },
+    {
+      "id": "370",
+      "title": "带动画的 Unity 资产",
+      "url": "https://assetstore.unity.com/",
+      "dateAdded": 1792300571318,
+      "folderPath": "其他书签 > Lectures > 游戏开发自助餐 > 游戏美术区 > 3D 动画 · 现成资源"
+    },
+    {
+      "id": "372",
+      "title": "Universal LPC Spritesheet Generator",
+      "url": "https://liberatedpixelcup.github.io/Universal-LPC-Spritesheet-Character-Generator/#sex=male&body=Body_color_light&head=Human_male_light&expression=Neutral_light",
+      "dateAdded": 1792300571319,
+      "folderPath": "其他书签 > Lectures > 游戏开发自助餐 > 游戏美术区 > 角色与绑定补充"
+    },
+    {
+      "id": "373",
+      "title": "Auto-Rig Pro 角色绑定教程",
+      "url": "https://www.youtube.com/watch?v=I_hTspsqnCE",
+      "dateAdded": 1792300571322,
+      "folderPath": "其他书签 > Lectures > 游戏开发自助餐 > 游戏美术区 > 角色与绑定补充"
+    },
+    {
+      "id": "374",
+      "title": "Rokoko Create",
+      "url": "https://create.rokoko.com/",
+      "dateAdded": 1792300571323,
+      "folderPath": "其他书签 > Lectures > 游戏开发自助餐 > 游戏美术区 > 角色与绑定补充"
+    },
+    {
+      "id": "375",
+      "title": "Anything World",
+      "url": "https://app.anything.world/u/my-world/my-models",
+      "dateAdded": 1792300571323,
+      "folderPath": "其他书签 > Lectures > 游戏开发自助餐 > 游戏美术区 > 角色与绑定补充"
+    },
+    {
+      "id": "272",
+      "title": "t3ssel8r - YouTube",
+      "url": "https://www.youtube.com/@t3ssel8r",
+      "dateAdded": 1792117912571,
+      "folderPath": "其他书签 > Lectures > 游戏开发自助餐 > 游戏美术区 > 美术风格与技术参考"
+    },
+    {
+      "id": "279",
+      "title": "Nick Carver - YouTube",
+      "url": "https://www.youtube.com/@nickdcarver",
+      "dateAdded": 1792296288701,
+      "folderPath": "其他书签 > Lectures > 游戏开发自助餐 > 游戏美术区 > 美术风格与技术参考"
+    },
+    {
+      "id": "280",
+      "title": "Indie Game Art: Style By Necessity - YouTube",
+      "url": "https://www.youtube.com/watch?v=IgJBLXBG1Yc&list=PLofegzJ9Wy5vH_yPxIUd8jBKr2BgMCd5o&index=4",
+      "dateAdded": 1792296324281,
+      "folderPath": "其他书签 > Lectures > 游戏开发自助餐 > 游戏美术区 > 美术风格与技术参考"
+    },
+    {
+      "id": "320",
+      "title": "Cursor",
+      "url": "https://cursor.com/cn/agents",
+      "dateAdded": 1792300571288,
+      "folderPath": "其他书签 > Lectures > 游戏开发自助餐 > AI 编程区 > AI 编程工具"
+    },
+    {
+      "id": "321",
+      "title": "TRAE",
+      "url": "https://www.trae.ai/",
+      "dateAdded": 1792300571288,
+      "folderPath": "其他书签 > Lectures > 游戏开发自助餐 > AI 编程区 > AI 编程工具"
+    },
+    {
+      "id": "322",
+      "title": "Google Antigravity",
+      "url": "https://antigravity.google/",
+      "dateAdded": 1792300571288,
+      "folderPath": "其他书签 > Lectures > 游戏开发自助餐 > AI 编程区 > AI 编程工具"
+    },
+    {
+      "id": "323",
+      "title": "Codex",
+      "url": "https://openai.com/codex/",
+      "dateAdded": 1792300571288,
+      "folderPath": "其他书签 > Lectures > 游戏开发自助餐 > AI 编程区 > AI 编程工具"
+    },
+    {
+      "id": "306",
+      "title": "Unity 6 如何下载安装",
+      "url": "https://www.bilibili.com/video/BV1EaePz2E8h/",
+      "dateAdded": 1792300571270,
+      "folderPath": "其他书签 > Lectures > 游戏开发自助餐 > Unity 引擎区 > 下载安装"
+    },
+    {
+      "id": "308",
+      "title": "GMTK · Unity 完全小白教程（中文字幕）",
+      "url": "https://www.bilibili.com/video/BV1wA41197BX/",
+      "dateAdded": 1792300571275,
+      "folderPath": "其他书签 > Lectures > 游戏开发自助餐 > Unity 引擎区 > 零基础入门"
+    },
+    {
+      "id": "310",
+      "title": "Unity 2D 角色移动教程",
+      "url": "https://www.youtube.com/watch?v=dwcT-Dch0bA&list=PLPV2KyIb3jR6TFcFuzI2bB7TMNIIBpKMQ&index=2",
+      "dateAdded": 1792300571281,
+      "folderPath": "其他书签 > Lectures > 游戏开发自助餐 > Unity 引擎区 > 2D 游戏路线"
+    },
+    {
+      "id": "311",
+      "title": "为 Unity 游戏制作精灵图",
+      "url": "https://www.youtube.com/watch?v=ou8VkQB2sos&t=131s",
+      "dateAdded": 1792300571281,
+      "folderPath": "其他书签 > Lectures > 游戏开发自助餐 > Unity 引擎区 > 2D 游戏路线"
+    },
+    {
+      "id": "313",
+      "title": "Unity Starter Assets 入门",
+      "url": "https://www.youtube.com/watch?v=4QuPlKzdq14",
+      "dateAdded": 1792300571282,
+      "folderPath": "其他书签 > Lectures > 游戏开发自助餐 > Unity 引擎区 > 3D 游戏路线"
+    },
+    {
+      "id": "281",
+      "title": "Best Code Architectures For Indie Games - YouTube",
+      "url": "https://www.youtube.com/watch?v=8WqYQ1OwxJ4&t=1s",
+      "dateAdded": 1792296692688,
+      "folderPath": "其他书签 > Lectures > 游戏开发自助餐 > Unity 引擎区 > 开发架构与实践"
+    },
+    {
+      "id": "316",
+      "title": "Unity 2D 视差背景效果",
+      "url": "https://www.youtube.com/watch?v=MEy-kIGE-lI",
+      "dateAdded": 1792300571286,
+      "folderPath": "其他书签 > Lectures > 游戏开发自助餐 > Unity 引擎区 > 补充教程"
+    },
+    {
+      "id": "317",
+      "title": "Unity 角色控制器与 Locomotion",
+      "url": "https://www.bilibili.com/video/BV1uTQmByEMr/",
+      "dateAdded": 1792300571287,
+      "folderPath": "其他书签 > Lectures > 游戏开发自助餐 > Unity 引擎区 > 补充教程"
+    },
+    {
+      "id": "291",
+      "title": "Game Maker's Toolkit",
+      "url": "https://www.youtube.com/@GMTK",
+      "dateAdded": 1792300571252,
+      "folderPath": "其他书签 > Lectures > 游戏开发自助餐 > 灵感刷刷区 > 频道订阅"
+    },
+    {
+      "id": "292",
+      "title": "Extra Credits",
+      "url": "https://www.youtube.com/@extracredits",
+      "dateAdded": 1792300571253,
+      "folderPath": "其他书签 > Lectures > 游戏开发自助餐 > 灵感刷刷区 > 频道订阅"
+    },
+    {
+      "id": "293",
+      "title": "GDC Festival of Gaming",
+      "url": "https://www.youtube.com/@GDCFestivalofGaming",
+      "dateAdded": 1792300571253,
+      "folderPath": "其他书签 > Lectures > 游戏开发自助餐 > 灵感刷刷区 > 频道订阅"
+    },
+    {
+      "id": "294",
+      "title": "汗先生的集游册",
+      "url": "https://www.bilibili.com/video/BV1kbUkBVE8y",
+      "dateAdded": 1792300571254,
+      "folderPath": "其他书签 > Lectures > 游戏开发自助餐 > 灵感刷刷区 > 频道订阅"
+    },
+    {
+      "id": "295",
+      "title": "Lee哥的游戏开发加油站",
+      "url": "https://space.bilibili.com/396395171",
+      "dateAdded": 1792300571254,
+      "folderPath": "其他书签 > Lectures > 游戏开发自助餐 > 灵感刷刷区 > 频道订阅"
+    },
+    {
+      "id": "277",
+      "title": "Indie Games Hub - YouTube",
+      "url": "https://www.youtube.com/@IndieHub01",
+      "dateAdded": 1792296239313,
+      "folderPath": "其他书签 > Lectures > 游戏开发自助餐 > 灵感刷刷区 > 频道订阅"
+    },
+    {
+      "id": "297",
+      "title": "GMTK Game Jam 2025 精选",
+      "url": "https://www.youtube.com/watch?v=kG3LWpuiLqg",
+      "dateAdded": 1792300571261,
+      "folderPath": "其他书签 > Lectures > 游戏开发自助餐 > 灵感刷刷区 > Game Jam 精选"
+    },
+    {
+      "id": "298",
+      "title": "GMTK Game Jam 2024 精选",
+      "url": "https://www.youtube.com/watch?v=gqCAeFjB8Uo",
+      "dateAdded": 1792300571262,
+      "folderPath": "其他书签 > Lectures > 游戏开发自助餐 > 灵感刷刷区 > Game Jam 精选"
+    },
+    {
+      "id": "299",
+      "title": "GMTK Game Jam 2023 精选",
+      "url": "https://www.youtube.com/watch?v=tYxZ_LOlFnU",
+      "dateAdded": 1792300571266,
+      "folderPath": "其他书签 > Lectures > 游戏开发自助餐 > 灵感刷刷区 > Game Jam 精选"
+    },
+    {
+      "id": "301",
+      "title": "教会我游戏设计的 100 个游戏",
+      "url": "https://www.youtube.com/watch?v=gWNXGfXOrro",
+      "dateAdded": 1792300571267,
+      "folderPath": "其他书签 > Lectures > 游戏开发自助餐 > 灵感刷刷区 > 游戏设计精讲"
+    },
+    {
+      "id": "302",
+      "title": "从简单的设置中学习游戏设计",
+      "url": "https://www.youtube.com/watch?v=zWi0jgghGcI",
+      "dateAdded": 1792300571268,
+      "folderPath": "其他书签 > Lectures > 游戏开发自助餐 > 灵感刷刷区 > 游戏设计精讲"
+    },
+    {
+      "id": "278",
+      "title": "Best Pixel Art Games - YouTube",
+      "url": "https://www.youtube.com/playlist?list=PLxxJaB4u1JY4my1Q0RrPRjT-NSnf0H28h",
+      "dateAdded": 1792296275076,
+      "folderPath": "其他书签 > Lectures > 游戏开发自助餐 > 灵感刷刷区 > 作品与视觉参考"
+    }
+  ]
+}
