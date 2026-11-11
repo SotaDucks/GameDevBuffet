@@ -1,20 +1,21 @@
 {
   "miro-3458764650956889459": {
-    "thumbnail": "assets/images/resources/miro-3458764650956889459.svg",
-    "imageSource": "local-title-card"
+    "thumbnail": "assets/images/resources/miro-3458764650956889459.webp",
+    "imageSource": "https://ptht05hbb1ssoooe.public.blob.vercel-storage.com/assets/og/opengraph-default.png"
   },
   "miro-3458764650957238017": {
-    "thumbnail": "assets/images/resources/miro-3458764650957238017.png",
-    "imageSource": "https://lf16-web-neutral.traecdn.ai/obj/trae-ai-static/trae_website/favicon.png",
-    "thumbnailFit": "contain"
+    "thumbnail": "assets/images/resources/miro-3458764650957238017.webp",
+    "thumbnailFit": "contain",
+    "imageSource": "https://raw.githubusercontent.com/lobehub/lobe-icons/master/packages/static-png/dark/trae-color.png"
   },
   "miro-3458764665762169179": {
-    "thumbnail": "assets/images/resources/miro-3458764665762169179.svg",
-    "imageSource": "local-title-card"
+    "thumbnail": "assets/images/resources/miro-3458764665762169179.webp",
+    "thumbnailFit": "contain",
+    "imageSource": "https://www.gstatic.com/antigravity/logos/antigravity-icon__full-color.png"
   },
   "miro-3458764673185976160": {
-    "thumbnail": "assets/images/resources/miro-3458764673185976160.svg",
-    "imageSource": "local-title-card"
+    "thumbnail": "assets/images/resources/miro-3458764673185976160.webp",
+    "imageSource": "https://raw.githubusercontent.com/openai/codex/main/.github/codex-cli-splash.png"
   },
   "drawing": {
     "thumbnail": "assets/images/resources/drawing.svg",
@@ -305,5 +306,55 @@
     "thumbnail": "assets/images/resources/nick-carver.jpg",
     "imageSource": "https://yt3.googleusercontent.com/ytc/AIdro_mACvFA0SQMLMIJI_PLWdyAD556GgJ3XZlz5Ji5HZ3eGos=s900-c-k-c0x00ffffff-no-rj",
     "thumbnailFit": "contain"
+  },
+  "three-bookmark-257": {
+    "thumbnail": "assets/images/resources/three-bookmark-257.jpg",
+    "imageSource": "https://pbs.twimg.com/amplify_video_thumb/2109849784177872896/img/eNWr1vQan0ovnvaj.jpg",
+    "imageSourceType": "demo-video-cover",
+    "pageUrl": "https://hanakawa-boat-game.vercel.app/"
+  },
+  "three-bookmark-260": {
+    "thumbnail": "assets/images/resources/three-bookmark-260.jpg",
+    "imageSource": "https://gulabi-nagar-jaipur.vercel.app/",
+    "imageSourceType": "page-screenshot",
+    "pageUrl": "https://gulabi-nagar-jaipur.vercel.app/"
+  },
+  "three-bookmark-261": {
+    "thumbnail": "assets/images/resources/three-bookmark-261.webp",
+    "imageSource": "https://opengraph.githubassets.com/2e83b49efc3c84bb6ddbb5e0912c41ba29cf1a8d7485d0e9578c28b4348a5703/dgreenheck/tidewater"
+  },
+  "three-bookmark-263": {
+    "thumbnail": "assets/images/resources/three-bookmark-263.jpg",
+    "imageSource": "https://isoglow.dev/demo/3d#tw",
+    "imageSourceType": "page-screenshot",
+    "pageUrl": "https://isoglow.dev/demo/3d#tw"
+  },
+  "three-bookmark-267": {
+    "thumbnail": "assets/images/resources/three-bookmark-267.webp",
+    "imageSource": "https://hkisrufjmjfdgyqbbcwa.supabase.co/storage/v1/object/public/shaderthumb/3c09006a-8c6d-4521-adff-a558a5d6cf4a/2265.jpg"
+  },
+  "three-bookmark-270": {
+    "thumbnail": "assets/images/resources/three-bookmark-270.webp",
+    "imageSource": "https://littleprince.dev/keyart.031aa305131370a0e08c9cb92d1b1aaa.jpg"
+  },
+  "three-bookmark-274": {
+    "thumbnail": "assets/images/resources/three-bookmark-274.webp",
+    "imageSource": "http://i0.hdslb.com/bfs/archive/2fd0e3624e93e0247570b733050a6cc2621c1324.jpg"
+  },
+  "three-bookmark-411": {
+    "thumbnail": "assets/images/resources/three-bookmark-411.webp",
+    "imageSource": "https://april-zhu.com/colorfigures/og-2.jpg"
+  },
+  "three-bookmark-412": {
+    "thumbnail": "assets/images/resources/three-bookmark-412.webp",
+    "imageSource": "https://raw.githubusercontent.com/KodyJKing/hello-threejs/main/screenshot.png"
+  },
+  "three-bookmark-430": {
+    "thumbnail": "assets/images/resources/three-bookmark-430.webp",
+    "imageSource": "https://raw.githubusercontent.com/ssochi/land/main/docs/hero.jpg"
+  },
+  "three-bookmark-444": {
+    "thumbnail": "assets/images/resources/three-bookmark-444.webp",
+    "imageSource": "https://here.now/og/distant-rapids-j68a.jpg"
   }
 }

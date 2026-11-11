@@ -1,6 +1,6 @@
 /* 内容整理自游戏开发自助餐 Miro 板；修改 groups 可维护资源。 */
 window.RESOURCE_PAGE = {
-  "no": "06",
+  "no": "08",
   "title": "好用小工具",
   "short": "工具",
   "en": "Useful Tools",

@@ -19,7 +19,7 @@ window.RESOURCE_PAGE = {
           "note": "",
           "type": "tool",
           "platform": "website",
-          "thumbnail": "assets/images/resources/miro-3458764650956889459.svg"
+          "thumbnail": "assets/images/resources/miro-3458764650956889459.webp"
         },
         {
           "id": "miro-3458764650957238017",
@@ -29,7 +29,7 @@ window.RESOURCE_PAGE = {
           "note": "",
           "type": "tool",
           "platform": "website",
-          "thumbnail": "assets/images/resources/miro-3458764650957238017.png",
+          "thumbnail": "assets/images/resources/miro-3458764650957238017.webp",
           "thumbnailFit": "contain"
         },
         {
@@ -40,7 +40,8 @@ window.RESOURCE_PAGE = {
           "note": "",
           "type": "tool",
           "platform": "website",
-          "thumbnail": "assets/images/resources/miro-3458764665762169179.svg"
+          "thumbnail": "assets/images/resources/miro-3458764665762169179.webp",
+          "thumbnailFit": "contain"
         },
         {
           "id": "miro-3458764673185976160",
@@ -50,7 +51,7 @@ window.RESOURCE_PAGE = {
           "note": "",
           "type": "tool",
           "platform": "website",
-          "thumbnail": "assets/images/resources/miro-3458764673185976160.svg"
+          "thumbnail": "assets/images/resources/miro-3458764673185976160.webp"
         }
       ],
       "note": "资料板的学习顺序：先跟完几期 Unity 教程，建立基础认识，再开始使用 AI 编程工具。",

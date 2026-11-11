@@ -149,7 +149,7 @@ window.INSPIRATION = {
           title: '像素游戏作品精选',
           orig: 'Best Pixel Art Games',
           desc: 'Indie Games Hub 的像素游戏播放列表，按类型与年度收集作品，适合寻找画面和玩法参考。',
-          note: '这是作品推荐合集，可结合游戏美术区的制作教程继续学习。',
+          note: '这是作品推荐合集，可结合 2D 和 3D 美术分区的制作教程继续学习。',
           url: 'https://www.youtube.com/playlist?list=PLxxJaB4u1JY4my1Q0RrPRjT-NSnf0H28h',
           platform: 'youtube', type: 'playlist'
         },
@@ -181,7 +181,7 @@ window.INSPIRATION = {
           "orig": "Indie Game Art: Style By Necessity",
           "url": "https://www.youtube.com/watch?v=IgJBLXBG1Yc&list=PLofegzJ9Wy5vH_yPxIUd8jBKr2BgMCd5o&index=4",
           "desc": "Miziziziz 从像素、低多边形和 2D / 3D 制作技巧出发，讨论适合独立开发的美术风格。",
-          "note": "适合确定美术方向和制作工作量时参考，再到游戏美术区选择对应的资产与动画路线。",
+          "note": "适合确定美术方向和制作工作量时参考，再到对应的美术分区选择资产与动画路线。",
           "type": "video",
           "platform": "youtube",
           "thumbnail": "assets/images/resources/art-style-by-necessity.jpg"

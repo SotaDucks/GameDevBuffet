@@ -33,6 +33,11 @@ def fallback(it):
  return str(path.relative_to(ROOT)).replace('\\','/')
 
 def save(it):
+ cached=results.get(it['id'],{})
+ # 保留已为该页面选定的截图或演示封面。
+ if (cached.get('pageUrl')==it['url']
+     and cached.get('thumbnail') and (ROOT/cached['thumbnail']).is_file()):
+  return it['id'],cached
  fallback_path=fallback(it)
  result={'thumbnail':fallback_path, 'imageSource':'local-title-card'}
  candidates=[]
@@ -78,13 +83,13 @@ for path in (ROOT/'assets/js').glob('*-data.js'):
  data=json.loads(body.rstrip().removesuffix(';'))
  for group in data['groups']:
   for it in group['items']:
-   if it['id'] in results:it.update({k:v for k,v in results[it['id']].items() if k!='imageSource'})
+   if it['id'] in results:it.update({k:v for k,v in results[it['id']].items() if k in ('thumbnail','thumbnailFit')})
  path.write_text(prefix+'window.RESOURCE_PAGE = '+json.dumps(data,ensure_ascii=False,indent=2)+';\n',encoding='utf-8')
 
 path=ROOT/'assets/js/unity-extra.js';text=path.read_text(encoding='utf-8')
 body=text.split('groups.push(',1)[1].rstrip().removesuffix(');')
 data=json.loads(body)
 for it in data['items']:
- if it['id'] in results:it.update({k:v for k,v in results[it['id']].items() if k!='imageSource'})
+ if it['id'] in results:it.update({k:v for k,v in results[it['id']].items() if k in ('thumbnail','thumbnailFit')})
 path.write_text('/* Miro 板外补充教程 */\nwindow.RESOURCE_PAGE.groups.push('+json.dumps(data,ensure_ascii=False,indent=2)+');\n',encoding='utf-8')
 (ROOT/'assets/data/image-sources.json').write_text(json.dumps(results,ensure_ascii=False,indent=2),encoding='utf-8')

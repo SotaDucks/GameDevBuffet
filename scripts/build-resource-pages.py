@@ -38,7 +38,7 @@ ai = [group('editors', 'AI 编程工具', '熟悉 Unity 基础后，挑选一个
     widget('3458764673185976160', 'Codex', '资料板收录的 OpenAI 编程工具入口。')
 ], '资料板的学习顺序：先跟完几期 Unity 教程，建立基础认识，再开始使用 AI 编程工具。')]
 
-art = [
+art_2d = [
  group('draw-2d', '2D 美术资产 · 手搓', '手绘、数字绘画与像素画，适合持续积累。', [
     item('drawing', '手绘与数字绘画', BOARD+'?moveToWidget=3458764650942402690', '从手绘或熟悉的数字绘画工具开始制作素材。', '资料板提醒：绘画没有速成，需要长期练习。', 'reference'),
     item('aseprite', 'Aseprite', 'https://www.aseprite.org/', '资料板收录的像素画与逐帧动画制作软件。', '可从官网或 Steam 获取；零基础同学需要预留练习时间。'),
@@ -66,7 +66,10 @@ art = [
     item('jimeng', '即梦', 'https://jimeng.jianying.com/', '资料板列出的 AI 图像和视频工具之一。'),
     widget('3458764665702493794', '可灵 Kling AI', '资料板收录的 AI 图像与视频生成工具。'),
     item('tapnow', 'Tapnow', BOARD+'?moveToWidget=3458764665702493873', '资料板列出的另一项创作工具。', '板上没有提供外部链接，此卡片定位到原板条目。', 'reference')
- ], '资料板提醒：AI 工具变化快，结果可能不稳定，工作流需要结合自己的素材调整。'),
+ ], '资料板提醒：AI 工具变化快，结果可能不稳定，工作流需要结合自己的素材调整。')
+]
+
+art_3d = [
  group('model-3d', '3D 美术资产 · 手搓', 'Blender 建模与模型、材质导入 Unity。', [
     item('blender', 'Blender', 'https://www.blender.org/', '资料板推荐的 3D 创作工具，可从官网或 Steam 获取。', '导出前留意面数、面朝向和拓扑。'),
     widget('3458764650946081426', 'Blender → Unity：模型导出', '处理导出中的坐标轴、缩放和贴图打包问题。'),
@@ -137,9 +140,10 @@ tools = [
 # 作品与风格参考统一由 inspiration-data.js 维护，不在美术区重复生成。
 pages = {
  'ai-coding': dict(no='03', title='AI 编程区', short='AI 编程', en='AI Coding', lead='先建立 Unity 基础，再让 AI 加入你的开发流程。这里整理了资料板收录的四个编程工具，选择一个开始动手。', groups=ai, source='3458764650956513989'),
- 'art': dict(no='04', title='游戏美术区', short='美术', en='Game Art', lead='从一张角色图，到一个能动起来的模型。按 2D / 3D、素材 / 动画选择路线，手工制作、现成资产与 AI 工具都在这里。', groups=art, heroGroups=['draw-2d','animate-2d','model-3d','animate-3d'], source='3458764650951988035'),
- 'xr': dict(no='05', title='XR 教程', short='XR', en='XR', lead='把游戏带到头显和现实空间中。从头显开发教程、AR 平面识别，到 Meta Quest 的环境配置，按需要选择入口。', groups=xr, source='3458764668079073272'),
- 'tools': dict(no='06', title='好用小工具', short='工具', en='Useful Tools', lead='录一段演示、配一段声音、生成一张地图。把开发中顺手的小工具收在一起，需要时就来拿。', groups=tools, source='3458764671119475373')
+ 'art-2d': dict(no='04', title='2D 美术区', short='2D 美术', en='2D Game Art', lead='从手绘和像素画入门，制作 2D 游戏素材与动画，也可以探索 AI 图像和动画工具。', groups=art_2d, source='3458764650951988035'),
+ 'art-3d': dict(no='05', title='3D 美术区', short='3D 美术', en='3D Game Art', lead='学习 3D 建模、材质导入、骨骼绑定与角色动画，也可以从现成或 AI 生成的资产开始。', groups=art_3d, source='3458764650951988035'),
+ 'xr': dict(no='07', title='XR 教程', short='XR', en='XR', lead='把游戏带到头显和现实空间中。从头显开发教程、AR 平面识别，到 Meta Quest 的环境配置，按需要选择入口。', groups=xr, source='3458764668079073272'),
+ 'tools': dict(no='08', title='好用小工具', short='工具', en='Useful Tools', lead='录一段演示、配一段声音、生成一张地图。把开发中顺手的小工具收在一起，需要时就来拿。', groups=tools, source='3458764671119475373')
 }
 
 # 板外补充的 Unity 视频也归入现有页面。
@@ -180,6 +184,9 @@ extra_group['no']='06'
 (ROOT/'assets/js/unity-extra.js').write_text('/* Miro 板外补充教程 */\nwindow.RESOURCE_PAGE.groups.push('+json.dumps(extra_group,ensure_ascii=False,indent=2)+');\n',encoding='utf-8')
 
 areas=[('inspiration','灵感刷刷区',15),('unity','Unity 引擎区',8)]+[(key,p['title'],sum(len(g['items']) for g in p['groups'])) for key,p in pages.items()]
+# Three.js 书签独立维护，重新生成页面时同步保留其导航入口。
+three_data=json.loads((ROOT/'assets/js/three-data.js').read_text(encoding='utf-8').split('window.RESOURCE_PAGE = ',1)[1].strip().removesuffix(';'))
+areas.insert(5, ('three', three_data['title'], sum(len(g['items']) for g in three_data['groups'])))
 def nav(active):
  return '\n'.join('        <a '+('class="is-active" aria-current="page" ' if key==active else '')+'href="'+key+'.html">'+title+'<sup>'+str(count)+'</sup></a>' for key,title,count in areas)
 
@@ -207,10 +214,10 @@ for name,p in pages.items():
  text=text.replace('  <script src="assets/js/unity-extra.js"></script>\n','')
  (ROOT/(name+'.html')).write_text(text,encoding='utf-8')
 
-for name in ['index','inspiration','unity']:
+for name in ['index','inspiration','unity','three']:
  path=ROOT/(name+'.html');text=path.read_text(encoding='utf-8')
  text=re.sub(r'(<nav class="area-nav"[^>]*>).*?(</nav>)',lambda m:m[1]+'\n'+nav(name)+'\n      '+m[2],text,flags=re.S)
- if name=='index':text=text.replace('已开放 2 个','已开放 6 个').replace('更多分区陆续上线','6 个分区 · 自由取用')
+ if name=='index':text=re.sub(r'\d+ 个分区', str(len(areas))+' 个分区', text)
  if name=='unity' and 'unity-extra.js' not in text:text=text.replace('<script src="assets/js/unity-data.js"></script>','<script src="assets/js/unity-data.js"></script>\n  <script src="assets/js/unity-extra.js"></script>')
  if name=='unity':
   text=re.sub(r'(<b id="stat-items">).*?(</b>)',lambda m:m[1]+'8'+m[2],text)

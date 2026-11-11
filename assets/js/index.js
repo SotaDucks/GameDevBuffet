@@ -1,7 +1,7 @@
 /* 首页（菜单）渲染 */
 (function () {
-  var ISO = window.ISO;
-  if (!ISO) return;
+  var ISO = window.ISO, store = window.ResourceCards;
+  if (!ISO || !store) return;
 
   /* tags：卡片上的子路线标签（保持一行）；picks：代表资源 id，前三条同时作为封面拼贴 */
   var AREAS = [
@@ -14,13 +14,19 @@
     { no: '03', id: 'ai-coding', title: 'AI 编程区', short: 'AI 编程', desc: 'Cursor、TRAE、Antigravity、Codex 等 AI 编程工具。', href: 'ai-coding.html', live: true, count: 4,
       tags: ['AI 编辑器', '编程智能体'],
       picks: ['miro-3458764650957238017', 'miro-3458764650956889459', 'miro-3458764673185976160'] },
-    { no: '04', id: 'art', title: '游戏美术区', short: '美术', desc: '2D / 3D 美术资产与动画：手搓与 AI 两条路线。', href: 'art.html', live: true, count: 42,
-      tags: ['2D 素材', '3D 建模', '动画', 'AI 路线'],
-      picks: ['blender', 'miro-3458764650942658101', 'cascadeur'] },
-    { no: '05', id: 'xr', title: 'XR 教程', short: 'XR', desc: '头显开发、AR 图案 / 空间 / 平面识别，以及 Meta Quest 环境配置。', href: 'xr.html', live: true, count: 4,
+    { no: '04', id: 'art-2d', title: '2D 美术区', short: '2D 美术', desc: '手绘、像素素材、骨骼动画与 AI 图像和动画制作。', href: 'art-2d.html', live: true, count: 20,
+      tags: ['像素画', '2D 素材', '2D 动画', 'AI 路线'],
+      picks: ['aseprite', 'spine', 'nano-banana'] },
+    { no: '05', id: 'art-3d', title: '3D 美术区', short: '3D 美术', desc: '3D 建模、资产导入、骨骼绑定与角色动画。', href: 'art-3d.html', live: true, count: 22,
+      tags: ['建模', '3D 资产', '骨骼动画', 'AI 路线'],
+      picks: ['blender', 'cascadeur', 'asset-store'] },
+    { no: '06', id: 'three', title: 'Three.js 分区', short: 'Three.js', desc: '浏览器 3D 互动作品、开源项目、着色器与 AI 创作工具。', href: 'three.html', live: true, count: 11,
+      tags: ['互动作品', '源码', '着色器', 'AI 创作'],
+      picks: ['three-bookmark-270', 'three-bookmark-430', 'three-bookmark-267'] },
+    { no: '07', id: 'xr', title: 'XR 教程', short: 'XR', desc: '头显开发、AR 图案 / 空间 / 平面识别，以及 Meta Quest 环境配置。', href: 'xr.html', live: true, count: 4,
       tags: ['头显开发', 'AR 识别', 'Quest 配置'],
       picks: ['miro-3458764668079073589', 'miro-3458764673068663122', 'miro-3458764673185976292'] },
-    { no: '06', id: 'tools', title: '好用小工具', short: '工具', desc: '录屏、配音、地图生成、像素化等实用小工具。', href: 'tools.html', live: true, count: 15,
+    { no: '08', id: 'tools', title: '好用小工具', short: '工具', desc: '录屏、配音、地图生成、像素化等实用小工具。', href: 'tools.html', live: true, count: 15,
       tags: ['录屏配音', 'Shader', 'AI 素材'],
       picks: ['miro-3458764671119696344', 'miro-3458764673508929796', 'miro-3458764671119631919'] }
   ];
@@ -30,14 +36,16 @@
     inspiration: ['inspiration-data.js'],
     unity: ['unity-data.js', 'unity-extra.js'],
     'ai-coding': ['ai-coding-data.js'],
-    art: ['art-data.js'],
+    'art-2d': ['art-2d-data.js'],
+    'art-3d': ['art-3d-data.js'],
+    three: ['three-data.js'],
     xr: ['xr-data.js'],
     tools: ['tools-data.js']
   };
   var PF = { youtube: 'YouTube', bilibili: 'B站', website: '网站', github: 'GitHub', docs: '文档', miro: '资料板' };
   var esc = ISO.esc;
 
-  /* ---------- 首屏：关卡地图。6 座浮空小岛按 01 → 06 用一条小路串起来 ---------- */
+  /* ---------- 首屏：关卡地图 ---------- */
   (function () {
     var s = 18, A = 2.4, H = 0.6, PAD = 1, PH = 0.22, h2 = A / 2;
     var raw = ISO.proj(s, 0, 0), bb = [Infinity, Infinity, -Infinity, -Infinity];
@@ -50,7 +58,7 @@
 
     /* 屏幕横向 u、纵深 v 换算成世界坐标：01 在左下，之后上下交替、一路向右 */
     var nodes = AREAS.map(function (a, i) {
-      var u = (i - 2.5) * 3.6, v = i % 2 ? 0 : 13;
+      var u = (i - (AREAS.length - 1) / 2) * 3.6, v = i % 2 ? 0 : 13;
       return { a: a, i: i, up: i % 2 === 1, v: v, x: (u + v) / 2, y: (v - u) / 2 };
     });
     /* 岛的进出口：上下相邻的岛，从前角 / 后角接出小路 */
@@ -123,7 +131,7 @@
 
     var pad = 8, vb = [bb[0] - pad, bb[1] - pad, bb[2] - bb[0] + pad * 2, bb[3] - bb[1] + pad * 2].map(f).join(' ');
     var el = document.getElementById('hero-art');
-    el.innerHTML = '<svg viewBox="' + vb + '" role="group" aria-label="关卡地图：6 个分区按 01 到 06 排成一条路线" focusable="false">' +
+    el.innerHTML = '<svg viewBox="' + vb + '" role="group" aria-label="关卡地图：' + AREAS.length + ' 个分区按编号排列" focusable="false">' +
       body + '<g class="bridges">' + bridges + '</g>' + gem + '</svg>';
 
     var svg = el.querySelector('svg'), gemEl = svg.querySelector('.gem');
@@ -172,7 +180,7 @@
     try { return new URL(url).hostname.replace(/^www\./, ''); } catch (e) { return ''; }
   }
   function cell(it) {
-    var body = ISO.isTitleCard(it.thumbnail) || !it.thumbnail
+    var body = it.custom ? store.coverHTML(it) : ISO.isTitleCard(it.thumbnail) || !it.thumbnail
       ? ISO.titleCard(it.title, '')
       : '<img class="cover-image' + (it.thumbnailFit === 'contain' ? ' is-avatar' : '') + '" src="' + esc(it.thumbnail) + '" alt="" data-name="' + esc(it.title) + '" loading="lazy" decoding="async">';
     return '<div class="cell">' + body + '</div>';
@@ -180,25 +188,27 @@
 
   function fill(a, data) {
     var card = tiles.querySelector('[data-area="' + a.id + '"]');
-    if (!card || !data) return;
-    var byId = {}, total = 0;
-    data.groups.forEach(function (g) { g.items.forEach(function (it) { byId[it.id] = it; total++; }); });
-    var picks = a.picks.map(function (id) { return byId[id]; }).filter(Boolean);
-    if (!picks.length) return;
-
+    var items = data.groups.flatMap(function (g) { return g.items; });
+    var byId = new Map(items.map(function (it) { return [it.id, it]; }));
+    var picks = a.picks.map(function (id) { return byId.get(id); }).filter(Boolean);
+    picks = picks.concat(items.filter(function (it) { return !a.picks.includes(it.id); })).slice(0, 3);
     var cover = card.querySelector('[data-cover]');
-    cover.classList.add('collage');
-    cover.innerHTML = picks.slice(0, 3).map(cell).join('') +
-      (total > picks.length ? '<span class="more">+' + (total - picks.length) + '</span>' : '');
-    Array.prototype.forEach.call(cover.querySelectorAll('img'), function (img) {
+    cover.classList.toggle('collage', picks.length > 0);
+    cover.innerHTML = picks.length ? picks.map(cell).join('') : ISO.cover(ISO.hash(a.id));
+    if (items.length > picks.length) {
+      cover.insertAdjacentHTML('beforeend', '<span class="more">+' + (items.length - picks.length) + '</span>');
+    }
+    Array.prototype.forEach.call(cover.querySelectorAll('img:not([data-resource-url])'), function (img) {
       img.addEventListener('error', function () { img.outerHTML = ISO.titleCard(img.getAttribute('data-name'), ''); });
     });
+    store.loadCovers(cover);
 
-    card.querySelector('[data-picks]').innerHTML = '<ul class="tile-picks">' + picks.map(function (it) {
+    card.querySelector('[data-picks]').innerHTML = picks.length ? '<ul class="tile-picks">' + picks.map(function (it) {
       return '<li><span class="name">' + esc(it.title) + '</span><span class="pf">' + esc(PF[it.platform] || host(it.url)) + '</span></li>';
-    }).join('') + '</ul>';
-    card.querySelector('[data-sum]').textContent = total + ' 条 · ' + data.groups.length + ' 组';
-    return total;
+    }).join('') + '</ul>' : '<p class="desc">' + esc(a.desc) + '</p>';
+    card.querySelector('[data-sum]').textContent = items.length + ' 条 · ' + data.groups.length + ' 组';
+    document.querySelector('.area-nav a[href="' + a.href + '"] sup').textContent = items.length;
+    return items.length;
   }
 
   function load(src) {
@@ -211,16 +221,27 @@
     });
   }
 
-  var sumEl = document.getElementById('menu-sum'), grand = 0;
+  var sumEl = document.getElementById('menu-sum'), pages = new Map();
+  function renderMenu() {
+    var grand = AREAS.reduce(function (total, a) {
+      var data = pages.get(a.id);
+      return total + (data ? fill(a, store.apply(a.id, data)) : a.count);
+    }, 0);
+    if (sumEl) sumEl.textContent = AREAS.length + ' 个分区 · 共 ' + grand + ' 条资源';
+  }
+
   AREAS.reduce(function (chain, a) {
     return chain.then(function () {
       window.RESOURCE_PAGE = undefined;
       window.INSPIRATION = undefined;
       return SOURCES[a.id].reduce(function (c, src) { return c.then(function () { return load(src); }); }, Promise.resolve())
-        .then(function () { grand += fill(a, window.RESOURCE_PAGE || window.INSPIRATION) || 0; })
+        .then(function () { pages.set(a.id, window.RESOURCE_PAGE || window.INSPIRATION); })
         .catch(function () { /* 这个分区保留默认卡片 */ });
     });
-  }, Promise.resolve()).then(function () {
-    if (sumEl && grand) sumEl.textContent = AREAS.length + ' 个分区 · 共 ' + grand + ' 条资源';
+  }, Promise.resolve()).then(renderMenu);
+
+  window.addEventListener('storage', function (e) {
+    if (AREAS.some(function (a) { return store.affectsArea(e.key, a.id); })) renderMenu();
   });
+  window.addEventListener('pageshow', function (e) { if (e.persisted) renderMenu(); });
 })();

@@ -72,7 +72,7 @@ window.ISO = (function () {
     var W = 540, H = oy + n * s + 12;
     var p = proj(s, ox, oy);
     var rows = {
-      1: [2], 2: [1, 3], 3: [1, 2, 3], 4: [0, 1, 3, 4], 5: [0, 1, 2, 3, 4]
+      0: [], 1: [2], 2: [1, 3], 3: [1, 2, 3], 4: [0, 1, 3, 4], 5: [0, 1, 2, 3, 4]
     };
     var line = [[5, 1], [4, 2], [3, 3], [2, 4], [1, 5]];
     var out = '<svg viewBox="0 0 ' + W + ' ' + H + '" role="group" aria-label="分区大楼示意图，每一层对应一个分组" focusable="false">';
