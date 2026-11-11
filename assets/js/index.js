@@ -158,6 +158,9 @@
   /* ---------- 菜单卡片 ---------- */
   /* 先用配置画出卡片；分区数据加载后再换上拼贴封面和代表资源。加载失败时保留线稿封面和简介。 */
   var tiles = document.getElementById('tiles');
+  var navCounts = new Map(Array.from(document.querySelectorAll('.area-nav a'), function (link) {
+    return [store.areaId(link.href), link.querySelector('sup')];
+  }));
   tiles.innerHTML = AREAS.map(function (a) {
     var inner = '' +
       '<div class="cover" data-cover>' + ISO.cover(ISO.hash(a.id)) + '</div>' +
@@ -207,7 +210,8 @@
       return '<li><span class="name">' + esc(it.title) + '</span><span class="pf">' + esc(PF[it.platform] || host(it.url)) + '</span></li>';
     }).join('') + '</ul>' : '<p class="desc">' + esc(a.desc) + '</p>';
     card.querySelector('[data-sum]').textContent = items.length + ' 条 · ' + data.groups.length + ' 组';
-    document.querySelector('.area-nav a[href="' + a.href + '"] sup').textContent = items.length;
+    var navCount = navCounts.get(a.id);
+    if (navCount) navCount.textContent = items.length;
     return items.length;
   }
 

@@ -18,7 +18,7 @@
   function $(sel) { return document.querySelector(sel); }
 
   var activeArea = $('.area-nav [aria-current="page"]');
-  var area = activeArea.getAttribute('href').replace(/\.html$/, '');
+  var area = store.areaId(activeArea.href);
   var data, editing = false;
 
   /* ---------- 统计与首屏大楼 ---------- */
@@ -194,8 +194,9 @@
     '<div class="resource-bar">' +
       '<button class="chip" id="manage-cards" type="button" aria-controls="groups" aria-expanded="false">管理卡片</button>' +
       '<button class="chip chip-primary" id="add-card" type="button" hidden>＋ 添加卡片</button>' +
+      '<button class="chip" id="export-cards" type="button" hidden>导出发布文件</button>' +
     '</div>' +
-    '<p class="manage-help" id="manage-help" hidden>拖动把手或点击 ↑ ↓ 可在组内排序。改动自动保存在当前浏览器。</p>' +
+    '<p class="manage-help" id="manage-help" hidden>拖动把手或点击 ↑ ↓ 可在组内排序。改动保存在当前浏览器，发布时可导出全部分区的改动。</p>' +
     '<p class="manage-status" id="manage-status" role="status"></p>' +
     '<dialog class="card-dialog" id="card-dialog" aria-labelledby="card-dialog-title">' +
       '<form id="card-form">' +
@@ -215,6 +216,7 @@
   $('.resource-bar').prepend(countEl);
 
   var manageBtn = $('#manage-cards'), addBtn = $('#add-card'), status = $('#manage-status');
+  var exportBtn = $('#export-cards');
   var dialog = $('#card-dialog'), form = $('#card-form'), formStatus = $('#card-form-status');
   var titleInput = form.elements.namedItem('title'), urlInput = form.elements.namedItem('url');
 
@@ -242,9 +244,23 @@
     manageBtn.setAttribute('aria-expanded', String(editing));
     toolbar.hidden = editing;
     addBtn.hidden = !editing;
+    exportBtn.hidden = !editing;
     $('#manage-help').hidden = !editing;
     status.textContent = '';
     renderGroups();
+  });
+
+  exportBtn.addEventListener('click', function () {
+    try {
+      var file = new Blob([store.exportPublished()], { type: 'text/javascript;charset=utf-8' });
+      var url = URL.createObjectURL(file);
+      var link = document.createElement('a');
+      link.href = url;
+      link.download = 'published-cards.js';
+      link.click();
+      setTimeout(function () { URL.revokeObjectURL(url); }, 1000);
+      status.textContent = '已导出发布文件。替换项目 assets/js 下的同名文件后提交部署。';
+    } catch (e) { status.textContent = '浏览器无法读取卡片改动。'; }
   });
 
   addBtn.addEventListener('click', function () {

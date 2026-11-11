@@ -1,6 +1,12 @@
 /* 将浏览器里的卡片改动叠加到站点资源上。 */
 window.ResourceCards = (function () {
   var prefix = 'gamedevbuffet:cards:v1:';
+  var published = window.PUBLISHED_RESOURCE_CARDS || {};
+
+  function areaId(href) {
+    var pathname = new URL(href, document.baseURI).pathname.replace(/\/$/, '');
+    return pathname.slice(pathname.lastIndexOf('/') + 1).replace(/\.html$/i, '');
+  }
 
   // 美术拆分后继续使用原分组的存储键，保留浏览器里的卡片改动。
   function areaPrefix(area) {
@@ -16,7 +22,13 @@ window.ResourceCards = (function () {
         return saved;
       }
     } catch (e) { /* 存储不可读时仍可浏览原有资源。 */ }
-    return { added: [], removed: [], order: [] };
+    return null;
+  }
+
+  function localChanges(area, group) {
+    // 旧版在部署环境可能按带前导斜杠的页面路径保存。
+    return read(storageKey(area, group)) || read(prefix + '/' + area + ':' + group.id) ||
+      { added: [], removed: [], order: [] };
   }
 
   function webURL(value) {
@@ -43,7 +55,8 @@ window.ResourceCards = (function () {
     });
     saved.added.forEach(function (item) {
       var url = item && webURL(item.url);
-      if (!url || typeof item.id !== 'string' || typeof item.title !== 'string' || byId.has(item.id)) return;
+      if (!url || typeof item.id !== 'string' || typeof item.title !== 'string' ||
+          removed.has(item.id) || byId.has(item.id)) return;
       byId.set(item.id, {
         id: item.id, title: item.title, url: url.href, type: 'resource',
         platform: platformFor(url.hostname), desc: typeof item.desc === 'string' ? item.desc : '',
@@ -61,18 +74,24 @@ window.ResourceCards = (function () {
     return ordered.concat(Array.from(byId.values()));
   }
 
+  function publishedGroup(area, group) {
+    var changes = published[storageKey(area, group).slice(prefix.length)];
+    return changes ? Object.assign({}, group, { items: merge(group, changes) }) : group;
+  }
+
   function apply(area, data) {
     return Object.assign({}, data, {
       groups: data.groups.map(function (group) {
-        return Object.assign({}, group, { items: merge(group, read(storageKey(area, group))) });
+        return Object.assign({}, group, { items: merge(publishedGroup(area, group), localChanges(area, group)) });
       })
     });
   }
 
   function update(area, group, change) {
     var key = storageKey(area, group);
-    var saved = read(key);
-    if (!change(saved, merge(group, saved))) return false;
+    var saved = localChanges(area, group);
+    var base = publishedGroup(area, group);
+    if (!change(saved, merge(base, saved), base.items)) return false;
     window.localStorage.setItem(key, JSON.stringify(saved));
     return true;
   }
@@ -88,14 +107,10 @@ window.ResourceCards = (function () {
   }
 
   function remove(area, group, id) {
-    return update(area, group, function (saved, items) {
-      var item = items.find(function (candidate) { return candidate.id === id; });
-      if (!item) return false;
-      if (item.custom) {
-        saved.added = saved.added.filter(function (candidate) { return candidate && candidate.id !== id; });
-      } else {
-        saved.removed.push(id);
-      }
+    return update(area, group, function (saved, items, baseItems) {
+      if (!items.some(function (item) { return item.id === id; })) return false;
+      saved.added = saved.added.filter(function (item) { return item && item.id !== id; });
+      if (baseItems.some(function (item) { return item.id === id; })) saved.removed.push(id);
       saved.order = saved.order.filter(function (candidate) { return candidate !== id; });
       return true;
     });
@@ -113,7 +128,40 @@ window.ResourceCards = (function () {
     });
   }
 
-  function affectsArea(key, area) { return key === null || key.startsWith(areaPrefix(area)); }
+  function affectsArea(key, area) {
+    return key === null || key.startsWith(areaPrefix(area)) || key.startsWith(prefix + '/' + area + ':');
+  }
+
+  function exportPublished() {
+    var snapshot = Object.assign(Object.create(null), published);
+    var localKeys = new Map();
+    for (var i = 0; i < window.localStorage.length; i++) {
+      var key = window.localStorage.key(i);
+      if (!key || !key.startsWith(prefix)) continue;
+      var scope = key.slice(prefix.length);
+      var separator = scope.indexOf(':');
+      if (separator < 1) continue;
+      var normalized = areaPrefix(areaId(scope.slice(0, separator))).slice(prefix.length) + scope.slice(separator + 1);
+      if (!localKeys.has(normalized) || scope === normalized) localKeys.set(normalized, key);
+    }
+    localKeys.forEach(function (key, scope) {
+      var local = read(key);
+      if (!local) return;
+      var base = snapshot[scope] || { added: [], removed: [], order: [] };
+      var removed = new Set(base.removed.concat(local.removed));
+      var added = new Map();
+      base.added.concat(local.added).forEach(function (item) {
+        if (item && !removed.has(item.id)) added.set(item.id, item);
+      });
+      snapshot[scope] = {
+        added: Array.from(added.values()),
+        removed: Array.from(removed),
+        order: Array.from(new Set(local.order.concat(base.order))).filter(function (id) { return !removed.has(id); })
+      };
+    });
+    return '/* 从本地管理卡片导出，随静态网站一起发布。 */\nwindow.PUBLISHED_RESOURCE_CARDS = ' +
+      JSON.stringify(snapshot, null, 2) + ';\n';
+  }
 
   /* 自动封面单独缓存，异步取图不会修改卡片的新增、删除或排序记录。 */
   var coverPrefix = 'gamedevbuffet:cover:v1:';
@@ -233,5 +281,6 @@ window.ResourceCards = (function () {
   }
 
   return { apply: apply, add: add, remove: remove, move: move, webURL: webURL, affectsArea: affectsArea,
+    areaId: areaId, exportPublished: exportPublished,
     coverHTML: coverHTML, loadCovers: loadCovers };
 })();
